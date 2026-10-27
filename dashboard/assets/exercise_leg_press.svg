@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Sled Guide Rails 45 deg -->
+  <line x1="120" y1="40" x2="200" y2="120" stroke="#3A4055" stroke-width="4" stroke-dasharray="4,4"/>
+  <!-- Footplate with weight plates -->
+  <rect x="135" y="35" width="35" height="10" transform="rotate(45 135 35)" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <!-- Athlete Reclined in Seat -->
+  <path d="M50 125 L90 120 L75 80" stroke="#252A3A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="68" cy="72" r="10" fill="#E2E8F0"/>
+  <!-- Torso & Hip -->
+  <path d="M85 115 L105 105" stroke="#E2E8F0" stroke-width="16" stroke-linecap="round"/>
+  <!-- Legs Pushing Plate (Knees bent to extending) -->
+  <path d="M105 105 L115 65 L145 52" stroke="#E2E8F0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Quads Muscle Glow -->
+  <path d="M108 95 L114 70" stroke="#FF3B30" stroke-width="8" stroke-linecap="round"/>
+</svg>

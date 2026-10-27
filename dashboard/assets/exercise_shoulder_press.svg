@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Seated Bench Backrest -->
+  <rect x="85" y="55" width="12" height="85" rx="3" fill="#252A3A" stroke="#3A4055" stroke-width="1.5"/>
+  <!-- Athlete Seated Posture -->
+  <circle cx="115" cy="45" r="11" fill="#E2E8F0"/>
+  <path d="M112 58 L110 115" stroke="#E2E8F0" stroke-width="18" stroke-linecap="round"/>
+  <!-- Deltoids Glowing -->
+  <circle cx="98" cy="68" r="8" fill="#FF3B30"/>
+  <circle cx="126" cy="68" r="8" fill="#FF3B30"/>
+  <!-- Arms Pressed Overhead -->
+  <path d="M98 68 L88 42 L88 32" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <rect x="78" y="24" width="20" height="9" rx="2" fill="#F59E0B"/>
+  <path d="M126 68 L136 42 L136 32" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <rect x="126" y="24" width="20" height="9" rx="2" fill="#F59E0B"/>
+</svg>

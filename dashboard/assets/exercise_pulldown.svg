@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Pulley Machine Top Beam & Cable -->
+  <rect x="90" y="15" width="60" height="8" rx="2" fill="#252A3A"/>
+  <line x1="120" y1="23" x2="120" y2="40" stroke="#94A3B8" stroke-width="2.5"/>
+  <!-- Wide Grip Lat Bar -->
+  <path d="M70 45 Q120 40 170 45" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+  <!-- Athlete Back View Pulling Down -->
+  <circle cx="120" cy="62" r="10" fill="#E2E8F0"/>
+  <path d="M120 74 L120 125" stroke="#E2E8F0" stroke-width="16" stroke-linecap="round"/>
+  <!-- V-Taper Lats Glowing Red -->
+  <path d="M112 80 C100 85 95 100 102 110 L120 115 L138 110 C145 100 140 85 128 80 Z" fill="#FF3B30"/>
+  <!-- Arms in Wide V to Bar -->
+  <path d="M108 78 L85 50" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M132 78 L155 50" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+</svg>

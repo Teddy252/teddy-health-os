@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Flat Bench -->
+  <rect x="30" y="110" width="180" height="12" rx="4" fill="#252A3A" stroke="#3A4055" stroke-width="2"/>
+  <rect x="50" y="122" width="10" height="30" fill="#1C1F2B"/>
+  <rect x="180" y="122" width="10" height="30" fill="#1C1F2B"/>
+  <!-- Athlete Lying on Bench -->
+  <!-- Head & Torso -->
+  <ellipse cx="60" cy="100" rx="12" ry="10" fill="#E2E8F0"/>
+  <path d="M72 102 C85 96 110 95 140 102 L140 110 L72 110 Z" fill="#E2E8F0"/>
+  <!-- Pectoral Active Glow on Torso -->
+  <path d="M85 95 C95 88 115 88 125 96 L120 102 L90 102 Z" fill="#FF3B30"/>
+  <!-- Bent Knees / Feet on Floor -->
+  <path d="M140 105 L170 85 L185 140" stroke="#E2E8F0" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arms Holding Barbell -->
+  <path d="M95 98 L105 55 L115 45" stroke="#E2E8F0" stroke-width="9" stroke-linecap="round"/>
+  <!-- Barbell Bar -->
+  <line x1="85" y1="42" x2="145" y2="42" stroke="#94A3B8" stroke-width="5" stroke-linecap="round"/>
+  <!-- Weight Plates -->
+  <rect x="80" y="25" width="8" height="34" rx="2" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+  <rect x="142" y="25" width="8" height="34" rx="2" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+  <!-- Motion indicator arrow -->
+  <path d="M115 65 L115 50" stroke="#FF3B30" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+</svg>

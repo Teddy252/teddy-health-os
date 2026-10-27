@@ -1,0 +1,94 @@
+{
+  "client": "Teddy Tchogninou",
+  "daily_target_calories": 2680,
+  "daily_macros": {
+    "protein_g": 155,
+    "carbs_g": 350,
+    "fats_g": 72,
+    "water_liters": 3.0,
+    "creatine_protocol": "5g diariamente (todos os dias, sem parar, pela manhã com a banana ou pós-treino)"
+  },
+  "kitchen_measurement_guide": {
+    "arroz": "2 escumadeiras médias rasas (ou 2 conchas rasas) = aprox. 180-200g cozido",
+    "feijao": "1 concha cheia de feijão com caldo espesso e grãos = aprox. 130-150g",
+    "carnes_e_frango": "1 bife ou filé médio do tamanho da palma da mão aberta do Teddy = aprox. 150-160g pronto",
+    "carne_moida": "3 a 4 colheres de sopa bem cheias",
+    "banana_da_terra": "1 unidade média inteira (grelhada na frigideira, cozida ou assada)",
+    "ovos": "3 unidades inteiras por café da manhã",
+    "batatas": "2 batatas médias cozidas ou assadas (ou 3 fatias grossas de batata doce)"
+  },
+  "flavor_secrets_chef": [
+    "Marinada de Frango Suculento: suco de 1 limão, 2 dentes de alho picados, 1 colher de sobremesa de azeite, páprica defumada, sal moderado e alecrim ou orégano. Deixar 15 min antes de grelhar.",
+    "Feijão Encorpado da Casa: refogar bastante alho, cebola e folha de louro no azeite. Amassar uma concha de grãos no final e devolver à panela para engrossar o caldo naturalmente.",
+    "Banana da Terra Perfeita: cortar no comprimento, grelhar na frigideira antiaderente com um pingo de manteiga ou azeite até dourar e salpicar canela em pó com um fio de mel."
+  ],
+  "monthly_bulk_shopping_list": {
+    "description": "Itens de despensa e estoque para compra mensal de supermercado/atacado",
+    "items": [
+      { "item": "Arroz branco ou basmati", "quantity": "2 pacotes de 5kg (10kg total)" },
+      { "item": "Feijão Preto", "quantity": "3 pacotes de 1kg" },
+      { "item": "Feijão Carioca", "quantity": "3 pacotes de 1kg" },
+      { "item": "Feijão Fradinho / Manteiga", "quantity": "2 pacotes de 1kg" },
+      { "item": "Azeite de Oliva Extravirgem", "quantity": "2 garrafas de 500ml" },
+      { "item": "Aveia em flocos finos", "quantity": "4 pacotes de 500g (2kg total)" },
+      { "item": "Mel puro de abelha", "quantity": "1 pote de 500g" },
+      { "item": "Canela em pó e Páprica Defumada", "quantity": "2 potes de cada" },
+      { "item": "Folhas de Louro e Orégano", "quantity": "2 pacotinhos de cada" },
+      { "item": "Café de boa qualidade", "quantity": "4 pacotes de 500g" },
+      { "item": "Chás calmantes (Camomila, Erva-doce, Melissa)", "quantity": "4 caixas de sachês" },
+      { "item": "Castanhas de caju ou do Pará", "quantity": "500g a 1kg" }
+    ]
+  },
+  "weekly_fresh_shopping_list": {
+    "description": "Itens frescos para comprar toda semana ou quinzenalmente no açougue e feira",
+    "items": [
+      { "item": "Ovos brancos ou caipiras", "quantity": "2 bandejas de 30 ovos (60 ovos por quinzena)" },
+      { "item": "Peito de frango em filés", "quantity": "2,5 kg por semana (cortar e congelar em porções individuais)" },
+      { "item": "Carne bovina magra (patinho moído / alcatra)", "quantity": "2,0 kg por semana" },
+      { "item": "Banana da terra", "quantity": "8 a 10 unidades por semana" },
+      { "item": "Bananas prata ou nanica", "quantity": "2 dúzias por semana" },
+      { "item": "Batata inglesa e batata doce", "quantity": "3 kg de cada por semana" },
+      { "item": "Tomate, Cebola, Alho e Limão", "quantity": "Quantidade semanal de feira" },
+      { "item": "Cheiro-verde fresco e hortaliças (Alface, Rúcula)", "quantity": "Semanal" },
+      { "item": "Iogurte natural integral", "quantity": "6 a 8 potes por semana" }
+    ]
+  },
+  "four_weeks_meal_matrix": [
+    {
+      "week_number": 1,
+      "theme": "Clássicos da Casa & Força Total",
+      "cafe_da_manha": "3 ovos mexidos cremosos + 1 banana da terra grelhada com canela e 1 colher de chá de mel + café preto + 5g de creatina",
+      "almoco": "Peito de frango grelhado marinado com limão e alho (1 filé grande da palma da mão) + 2 escumadeiras de arroz branco + 1 concha de feijão preto encorpado + salada verde com azeite",
+      "lanche_tarde": "1 pote de iogurte natural com 3 colheres de aveia em flocos finos, 1 banana fatiada e punhado de castanhas",
+      "jantar": "Bife de alcatra grelhado macio + 2 escumadeiras de arroz + 1 concha de feijão preto + abobrinha e cenoura salteadas no azeite",
+      "ceia_opcional": "Xícara de chá de camomila + 2 castanhas ou 1 quadradinho de chocolate 70%"
+    },
+    {
+      "week_number": 2,
+      "theme": "Tradição Brasileira & Energia Pura",
+      "cafe_da_manha": "Omelete de 3 ovos com cheiro-verde e tomate picadinho + 1 banana da terra cozida com fio de mel e canela + café + 5g de creatina",
+      "almoco": "Patinho moído refogado com cebola e cenoura ralada (4 colheres de sopa cheias) + 2 escumadeiras de arroz + 1 concha de feijão carioca cremoso + 2 fatias grossas de batata doce assada",
+      "lanche_tarde": "Vitamina de banana com 250ml de leite ou água, 3 colheres de aveia, canela e 1 colher de mel",
+      "jantar": "Peito de frango desfiado ensopado com molho de tomate fresco + 2 escumadeiras de arroz + 1 concha de feijão carioca + purê de batata inglesa",
+      "ceia_opcional": "Chá de hortelã ou erva-doce morno"
+    },
+    {
+      "week_number": 3,
+      "theme": "Alta Gastronomia Rápida & Variedade",
+      "cafe_da_manha": "3 ovos mexidos com toque de azeite extravirgem + 1 banana da terra assada na frigideira com chia e canela + café preto + 5g de creatina",
+      "almoco": "Iscas de carne bovina acebolada na frigideira quente + 2 escumadeiras de arroz branco com toque de cúrcuma + 1 concha de feijão fradinho ou manteiga temperado com alho e louro + vinagrete fresco",
+      "lanche_tarde": "Mingau de aveia morno (3 colheres de aveia cozida com banana amassada, canela e mel)",
+      "jantar": "Sobrecoxa desossada grelhada com alecrim e alho + 2 escumadeiras de arroz + 1 concha de feijão + batatas rústicas douradas na frigideira",
+      "ceia_opcional": "Chá de melissa com 2 quadradinhos de chocolate amargo 70%"
+    },
+    {
+      "week_number": 4,
+      "theme": "Performance & Densidade Máxima (Consolidação 74kg)",
+      "cafe_da_manha": "3 ovos pochê ou mexidos cremosos + 1 banana da terra fatiada e grelhada com canela e mel + café preto + 5g de creatina",
+      "almoco": "Filé de peixe grelhado (tilápia ou salmão) ou bife de alcatra magro + purê de batatas inglesas com azeite e noz-moscada + 1 concha de feijão de sua escolha + salada de folhas crocantes",
+      "lanche_tarde": "Iogurte natural com aveia, banana em rodelas, morangos ou uvas e castanhas",
+      "jantar": "Carne de panela macia desmanchando com cenoura, cebola e batata + 2 escumadeiras de arroz branco regado com o molho da carne + 1 concha de feijão",
+      "ceia_opcional": "Chá de camomila morno com sementes de abóbora"
+    }
+  ]
+}

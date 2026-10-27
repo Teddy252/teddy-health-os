@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Teddy Tchogninou — Athlete OS</title>
+  <link rel="stylesheet" href="css/style.css?v=2.5">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23D4FF00'/><text y='.75em' x='50%' text-anchor='middle' font-size='55' font-weight='900' fill='%23000'>T</text></svg>">
+</head>
+<body>
+
+  <!-- Floating Sticky Mini-Timer (Pill) -->
+  <div id="mini-timer" class="floating-mini-timer" onclick="document.getElementById('pane-workouts').scrollIntoView({ behavior: 'smooth' })">
+    <div class="live-indicator" style="background: var(--amber); box-shadow: 0 0 8px var(--amber);"></div>
+    <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Descanso</span>
+    <span id="mini-timer-clock" class="mono" style="color: var(--amber); font-weight: 700; font-size: 14px;">01:00</span>
+  </div>
+
+  <div class="container">
+    
+    <!-- Top Athlete Navigation Bar -->
+    <header class="top-bar">
+      <div class="athlete-brand">
+        <div class="athlete-badge">TED</div>
+        <div class="athlete-meta">
+          <h1>Teddy Tchogninou</h1>
+          <p>Athlete OS • Olympus Academia • 32 Anos • 1,73 m</p>
+        </div>
+      </div>
+      <div class="status-chip">
+        <div class="live-indicator"></div>
+        <span>Apple Watch Conectado • Prontidão: 85%</span>
+      </div>
+    </header>
+
+    <!-- Athletic Metrics Row (Apple HealthKit Live Aggregations) -->
+    <section class="metrics-grid">
+      <!-- Metric 1: Weight Goal -->
+      <div class="metric-card">
+        <div class="metric-header">
+          <span class="metric-name">Meta de Peso</span>
+          <span style="font-size: 11px; color: var(--volt); font-weight: 700;">➔ 74.0 kg</span>
+        </div>
+        <div class="metric-value mono">
+          72.5 <small>kg</small>
+        </div>
+        <div class="metric-progress-track">
+          <div class="metric-progress-fill fill-volt" style="width: 98%;"></div>
+        </div>
+        <div class="metric-footer">
+          Faltam 1,5 kg para consolidar o físico
+        </div>
+      </div>
+
+      <!-- Metric 2: Daily Steps -->
+      <div class="metric-card">
+        <div class="metric-header">
+          <span class="metric-name">Passos Diários</span>
+          <span style="font-size: 11px; color: var(--mint); font-weight: 700;">+230%</span>
+        </div>
+        <div class="metric-value mono" id="val-steps">
+          18.450 <small>passos</small>
+        </div>
+        <div class="metric-progress-track">
+          <div class="metric-progress-fill fill-mint" style="width: 100%;"></div>
+        </div>
+        <div class="metric-footer" style="color: var(--mint);">
+          Meta de 8.000 superada com folga
+        </div>
+      </div>
+
+      <!-- Metric 3: Active Calories -->
+      <div class="metric-card">
+        <div class="metric-header">
+          <span class="metric-name">Queima Ativa</span>
+          <span style="font-size: 11px; color: var(--crimson); font-weight: 700;">Meta: 300</span>
+        </div>
+        <div class="metric-value mono" id="val-active-cal">
+          435 <small>kcal</small>
+        </div>
+        <div class="metric-progress-track">
+          <div class="metric-progress-fill fill-crimson" style="width: 100%;"></div>
+        </div>
+        <div class="metric-footer">
+          TDEE Real Médio: ~2.450 kcal/dia
+        </div>
+      </div>
+
+      <!-- Metric 4: Recovery HRV -->
+      <div class="metric-card">
+        <div class="metric-header">
+          <span class="metric-name">FC & HRV</span>
+          <span style="font-size: 11px; color: var(--cyan); font-weight: 700;">Parassimpático</span>
+        </div>
+        <div class="metric-value mono" id="val-rhr">
+          61 <small>bpm</small>
+        </div>
+        <div class="metric-progress-track">
+          <div class="metric-progress-fill fill-cyan" style="width: 85%;"></div>
+        </div>
+        <div class="metric-footer" id="val-hrv" style="color: var(--cyan);">
+          HRV: 49.5 ms • Prontidão Alta
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: WORKOUTS (OLYMPUS ACADEMIA) -->
+    <!-- ========================================================================= -->
+    <main id="pane-workouts" class="tab-pane">
+
+      <!-- Split Selector Pills -->
+      <div class="split-selector-row">
+        <button class="subtab-btn split-pill-btn active" data-workout="treino_a">Treino A • Peito, Bíceps & Antebraço</button>
+        <button class="subtab-btn split-pill-btn" data-workout="treino_b">Treino B • Ombro, Trapézio & Tríceps</button>
+        <button class="subtab-btn split-pill-btn" data-workout="treino_c">Treino C • Perna & Costas</button>
+      </div>
+
+      <!-- Hero Workout of the Day Banner -->
+      <section class="hero-session-card">
+        <div>
+          <span class="session-eyebrow">Sessão Ativa Olympus</span>
+          <h2 class="session-title" id="split-title">Treino A — Peito, Bíceps & Antebraço</h2>
+          <p class="session-subtitle" id="split-focus">Foco: Peitoral Maior (Clavicular e Esternal) e Flexores de Cotovelo</p>
+          <div class="session-stats-row">
+            <div class="session-stat">
+              <span class="session-stat-label">Aquecimento</span>
+              <span class="session-stat-val mono" id="split-warmup">8 min (Esteira / Bike)</span>
+            </div>
+            <div class="session-stat">
+              <span class="session-stat-label">Volume Total</span>
+              <span class="session-stat-val mono">8 Exercícios • 30 Séries</span>
+            </div>
+            <div class="session-stat">
+              <span class="session-stat-label">Estilo</span>
+              <span class="session-stat-val">Golden Era Classic</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-action-group">
+          <div class="session-heatmap-box">
+            <img id="split-heatmap-img" src="assets/muscle_chest.svg" alt="Muscle Heatmap">
+          </div>
+          <button class="btn-start-session" onclick="setTimerPreset(60)">
+            <span>Iniciar Sessão</span>
+            <span class="icon-circle">➔</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Precision Rest Timer -->
+      <div class="rest-timer-bar">
+        <div class="timer-left">
+          <div class="timer-ring-container">
+            <svg class="timer-svg" viewBox="0 0 64 64">
+              <circle class="timer-bg-circle" cx="32" cy="32" r="26"></circle>
+              <circle class="timer-progress-circle" id="timer-ring-path" cx="32" cy="32" r="26" style="stroke-dasharray: 163.36; stroke-dashoffset: 0;"></circle>
+            </svg>
+            <div class="timer-number mono" id="timer-ring-num">01:00</div>
+          </div>
+          <div class="timer-info">
+            <h4>Cronômetro de Recuperação</h4>
+            <p>Ressíntese Intramuscular de ATP-CP</p>
+          </div>
+        </div>
+        <div class="timer-chips-group">
+          <button class="chip-btn" onclick="setTimerPreset(45)">45s</button>
+          <button class="chip-btn" onclick="setTimerPreset(60)">60s</button>
+          <button class="chip-btn" onclick="setTimerPreset(75)">75s</button>
+          <button class="chip-btn" onclick="setTimerPreset(90)">90s</button>
+          <button class="chip-btn" onclick="setTimerPreset(120)">120s</button>
+          <button class="chip-btn active-action" id="btn-timer-toggle">Iniciar</button>
+          <button class="chip-btn" id="btn-timer-reset">Reset</button>
+        </div>
+      </div>
+
+      <!-- Muscular Volume Distribution Chart Card -->
+      <section class="volume-chart-card">
+        <div class="chart-header">
+          <div>
+            <span class="session-eyebrow" style="color: var(--volt);">Periodização & Densidade Muscular</span>
+            <h3 class="chart-title">Distribuição do Volume Semanal (Séries Válidas Olympus)</h3>
+            <p class="chart-subtitle">Frequência ABC • Equilíbrio biomecânico entre agonistas e antagonistas</p>
+          </div>
+          <div class="chart-badge">Volume Total: 96 Séries / Semana</div>
+        </div>
+
+        <div class="volume-bars-grid">
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Peitoral (Esternal & Clavicular)</span>
+              <span class="mono" style="color: var(--crimson);">16 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 88%; background: var(--crimson);"></div>
+            </div>
+          </div>
+
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Bíceps & Braquial</span>
+              <span class="mono" style="color: var(--crimson);">14 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 77%; background: var(--crimson);"></div>
+            </div>
+          </div>
+
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Deltoides & Trapézio</span>
+              <span class="mono" style="color: var(--amber);">16 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 88%; background: var(--amber);"></div>
+            </div>
+          </div>
+
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Tríceps Braquial</span>
+              <span class="mono" style="color: var(--amber);">12 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 66%; background: var(--amber);"></div>
+            </div>
+          </div>
+
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Costas & Dorsais</span>
+              <span class="mono" style="color: var(--mint);">18 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 100%; background: var(--mint);"></div>
+            </div>
+          </div>
+
+          <div class="volume-bar-item">
+            <div class="volume-bar-header">
+              <span>Quadríceps & Posteriores</span>
+              <span class="mono" style="color: var(--mint);">20 Séries</span>
+            </div>
+            <div class="volume-progress-track">
+              <div class="volume-progress-bar" style="width: 100%; background: var(--mint);"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercise Cards Stack (MuscleMaxme + openGym Hybrid) -->
+      <section class="exercises-stack" id="exercises-container">
+        <!-- Rendered dynamically by app.js -->
+      </section>
+
+      <!-- Post-Workout Cooldown Box -->
+      <div style="margin-top: 28px; background: var(--bg-card); border: var(--hairline); border-left: 3px solid var(--cyan); border-radius: var(--r-card); padding: 22px 24px;">
+        <h3 style="font-size: 14px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px;">
+          Descompressão & Alongamento Obrigatório Olympus
+        </h3>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">
+          Aviso da ficha física original: <em>"Não esqueça o alongamento!"</em>. Mantenha 30s cada posição para soltar a fáscia e acelerar a recuperação.
+        </p>
+        <ul id="split-cooldown-list" style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <!-- Finish Workout & Sync with Apple Fitness Bar -->
+      <div style="margin-top: 24px; background: linear-gradient(135deg, rgba(212, 255, 0, 0.08), rgba(17, 19, 25, 0.95)); border: var(--hairline-volt); border-radius: var(--r-card); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="session-eyebrow" style="color: var(--volt);">Conclusão da Sessão</span>
+          <h4 style="font-size: 17px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+            Finalizou o treino na Olympus?
+          </h4>
+          <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 2px;">
+            Clique para registrar o treino concluído e fechar seus anéis no Apple Fitness automaticamente.
+          </p>
+        </div>
+        <button class="btn-start-session" onclick="finishWorkoutAndSync()">
+          <span>Gravar no Apple Fitness</span>
+          <span class="icon-circle">⌚</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: NUTRITION & KITCHEN (CHEF & CARDÁPIO) -->
+    <!-- ========================================================================= -->
+    <section id="pane-nutrition" class="tab-pane" style="display: none;">
+      
+      <!-- Macro Overview Hero -->
+      <div class="nutrition-hero-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <span class="session-eyebrow" style="color: var(--mint);">Planejamento Nutricional de Precisão</span>
+            <h2 style="font-size: 22px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+              Plano de Hipertrofia Limpa • 74 kg
+            </h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+              Aporte calibrado: 2.680 kcal/dia (TDEE real 2.450 kcal + superávit fisiológico controlado).
+            </p>
+          </div>
+          <a href="guia_cozinha_print.html" target="_blank" class="status-chip" style="text-decoration: none; background: #FFFFFF; color: #000000; font-weight: 700;">
+            Versão para Geladeira (PDF A4) ➔
+          </a>
+        </div>
+
+        <div class="macro-split-strip">
+          <div class="macro-box">
+            <div class="macro-box-label">Aporte Calórico</div>
+            <div class="macro-box-val mono" style="color: var(--mint);">2.680 <small style="font-size: 12px; color: var(--text-muted);">kcal</small></div>
+          </div>
+          <div class="macro-box">
+            <div class="macro-box-label">Proteínas (2.15g/kg)</div>
+            <div class="macro-box-val mono" style="color: var(--crimson);">155 <small style="font-size: 12px; color: var(--text-muted);">g (620 kcal)</small></div>
+          </div>
+          <div class="macro-box">
+            <div class="macro-box-label">Carboidratos Complexos</div>
+            <div class="macro-box-val mono" style="color: var(--volt);">350 <small style="font-size: 12px; color: var(--text-muted);">g (1.400 kcal)</small></div>
+          </div>
+          <div class="macro-box">
+            <div class="macro-box-label">Gorduras Essenciais</div>
+            <div class="macro-box-val mono" style="color: var(--cyan);">72 <small style="font-size: 12px; color: var(--text-muted);">g (648 kcal)</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concentric Macro Nutrient Rings (Apple Activity Style) -->
+      <section class="macro-rings-card">
+        <div class="rings-svg-wrapper">
+          <svg class="rings-svg" viewBox="0 0 160 160">
+            <!-- Outer Ring: Protein (r=68, circum = 427.26) -->
+            <circle class="ring-track" cx="80" cy="80" r="68" stroke-width="10"></circle>
+            <circle class="ring-bar protein" id="ring-protein" cx="80" cy="80" r="68" stroke-width="10" stroke-dasharray="427.26" stroke-dashoffset="0"></circle>
+            
+            <!-- Middle Ring: Carbs (r=52, circum = 326.73) -->
+            <circle class="ring-track" cx="80" cy="80" r="52" stroke-width="10"></circle>
+            <circle class="ring-bar carbs" id="ring-carbs" cx="80" cy="80" r="52" stroke-width="10" stroke-dasharray="326.73" stroke-dashoffset="16"></circle>
+            
+            <!-- Inner Ring: Fats (r=36, circum = 226.19) -->
+            <circle class="ring-track" cx="80" cy="80" r="36" stroke-width="10"></circle>
+            <circle class="ring-bar fats" id="ring-fats" cx="80" cy="80" r="36" stroke-width="10" stroke-dasharray="226.19" stroke-dashoffset="0"></circle>
+          </svg>
+          <div class="rings-center-text">
+            <div class="rings-center-cal mono">2.680</div>
+            <div class="rings-center-sub">KCAL / DIA</div>
+          </div>
+        </div>
+
+        <div class="macro-breakdown-legend">
+          <div class="macro-legend-row">
+            <div>
+              <span class="macro-dot" style="background: var(--crimson);"></span>
+              <strong style="font-size: 13px; color: var(--text-head);">Proteína (2.15g/kg):</strong>
+              <span style="font-size: 12.5px; color: var(--text-muted); margin-left: 6px;">155g meta</span>
+            </div>
+            <span class="mono" style="font-weight: 700; color: var(--crimson);">620 kcal • 100%</span>
+          </div>
+
+          <div class="macro-legend-row">
+            <div>
+              <span class="macro-dot" style="background: var(--volt);"></span>
+              <strong style="font-size: 13px; color: var(--text-head);">Carboidratos Complexos:</strong>
+              <span style="font-size: 12.5px; color: var(--text-muted); margin-left: 6px;">350g meta</span>
+            </div>
+            <span class="mono" style="font-weight: 700; color: var(--volt);">1.400 kcal • 95%</span>
+          </div>
+
+          <div class="macro-legend-row">
+            <div>
+              <span class="macro-dot" style="background: var(--cyan);"></span>
+              <strong style="font-size: 13px; color: var(--text-head);">Gorduras Essenciais:</strong>
+              <span style="font-size: 12.5px; color: var(--text-muted); margin-left: 6px;">72g meta</span>
+            </div>
+            <span class="mono" style="font-weight: 700; color: var(--cyan);">648 kcal • 100%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sports Science Creatine Prescription -->
+      <div class="creatine-protocol-card">
+        <div class="creatine-symbol">Cr</div>
+        <div class="creatine-text">
+          <h4>Prescrição de Creatina Monohidratada: 5.0g Todos os Dias</h4>
+          <p>
+            Ajuste científico: tomar 5g uma vez por semana não atinge a saturação intramuscular fosfagênica. Consuma 5g <strong>diariamente</strong> com a banana da terra ou pós-treino com água.
+          </p>
+        </div>
+      </div>
+
+      <!-- Water Hydration Strip -->
+      <div class="hydration-strip">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--cyan); letter-spacing: 0.05em;">
+            Meta Hídrica Diária • 3.0 Litros (12 Copos)
+          </div>
+          <div class="mono" style="font-size: 22px; font-weight: 700; color: var(--text-head); margin-top: 2px;" id="water-liters-text">
+            0.00L / 3.0L
+          </div>
+          <div style="font-size: 11.5px; color: var(--text-dim); margin-top: 2px;">
+            Clique nos copos para registrar cada 250ml
+          </div>
+        </div>
+        <div class="hydration-cups-grid" id="water-cups-container">
+          <!-- Filled by app.js -->
+        </div>
+      </div>
+
+      <!-- Week Switcher -->
+      <div class="split-selector-row">
+        <button class="subtab-btn split-pill-btn week-select-btn active" data-week="1">Semana 1 • Clássicos da Casa</button>
+        <button class="subtab-btn split-pill-btn week-select-btn" data-week="2">Semana 2 • Brasileira & Maciez</button>
+        <button class="subtab-btn split-pill-btn week-select-btn" data-week="3">Semana 3 • Toque Gourmet</button>
+        <button class="subtab-btn split-pill-btn week-select-btn" data-week="4">Semana 4 • Máxima Performance</button>
+      </div>
+
+      <!-- Meals Timeline Card -->
+      <div class="meals-timeline">
+        <h3 id="meal-week-title" style="font-size: 17px; font-weight: 800; color: var(--text-head); margin-bottom: 12px;">
+          Semana 1 — Clássicos da Casa & Força Total
+        </h3>
+
+        <!-- Meal 1 -->
+        <div class="meal-row-card">
+          <div class="meal-timing-line">
+            <span class="meal-label">07:30 • Café da Manhã Pré-Treino</span>
+            <span class="tag-badge">Energia Imediata</span>
+          </div>
+          <div class="meal-content-text" id="meal-cafe">
+            3 ovos mexidos cremosos + 1 banana da terra grelhada com canela e 1 colher de mel + café preto + 5g de creatina monohidratada.
+          </div>
+        </div>
+
+        <!-- Meal 2 -->
+        <div class="meal-row-card" style="border-left-color: var(--mint);">
+          <div class="meal-timing-line">
+            <span class="meal-label" style="color: var(--mint);">12:30 • Almoço Anabólico</span>
+            <span class="tag-badge">Densidade Calórica</span>
+          </div>
+          <div class="meal-content-text" id="meal-almoco">
+            Peito de frango grelhado marinado com limão e alho + 2 escumadeiras de arroz branco + 1 concha de feijão preto encorpado + salada verde com azeite.
+          </div>
+        </div>
+
+        <!-- Meal 3 -->
+        <div class="meal-row-card" style="border-left-color: var(--amber);">
+          <div class="meal-timing-line">
+            <span class="meal-label" style="color: var(--amber);">16:30 • Lanche da Tarde</span>
+            <span class="tag-badge">Sustentação Glicêmica</span>
+          </div>
+          <div class="meal-content-text" id="meal-lanche">
+            1 pote de iogurte natural com 3 colheres de aveia em flocos finos, 1 banana fatiada e mix de castanhas.
+          </div>
+        </div>
+
+        <!-- Meal 4 -->
+        <div class="meal-row-card" style="border-left-color: var(--crimson);">
+          <div class="meal-timing-line">
+            <span class="meal-label" style="color: var(--crimson);">20:30 • Jantar Reconstrutor</span>
+            <span class="tag-badge">Síntese Proteica</span>
+          </div>
+          <div class="meal-content-text" id="meal-jantar">
+            Bife de alcatra grelhado macio + 2 escumadeiras de arroz + 1 concha de feijão preto + abobrinha e cenoura salteadas no azeite.
+          </div>
+        </div>
+
+        <!-- Meal 5 -->
+        <div class="meal-row-card" style="border-left-color: var(--cyan);">
+          <div class="meal-timing-line">
+            <span class="meal-label" style="color: var(--cyan);">22:30 • Ceia Opcional (Sono Profundo)</span>
+            <span class="tag-badge">Parassimpático</span>
+          </div>
+          <div class="meal-content-text" id="meal-ceia">
+            Xícara de chá de camomila morno + 2 castanhas ou 1 quadradinho de chocolate 70%.
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Grocery Checklist -->
+      <div class="grocery-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          <div>
+            <span class="session-eyebrow" style="color: var(--mint);">Gestão de Compras da Casa</span>
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-head);">
+              Lista de Compras da Empregada (Feira Semanal & Despensa)
+            </h3>
+          </div>
+          <div id="grocery-progress-badge" class="tag-badge" style="background: var(--mint-dim); color: var(--mint); font-weight: 700; font-size: 12px; padding: 4px 10px;">
+            0 de 0 comprados
+          </div>
+        </div>
+        <p style="font-size: 12px; color: var(--text-muted);">
+          Toque para dar baixa nos mantimentos adquiridos. O estado fica salvo automaticamente no aparelho.
+        </p>
+        <div class="grocery-items-list" id="grocery-checklist-items">
+          <!-- Populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: PHYSIOTHERAPY & ERGONOMICS (FISIO) -->
+    <!-- ========================================================================= -->
+    <section id="pane-physio" class="tab-pane" style="display: none;">
+      
+      <!-- Physio Hero Header -->
+      <div class="nutrition-hero-card" style="border-left: 3.5px solid var(--cyan);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="session-eyebrow" style="color: var(--cyan);">Medicina Esportiva & Fisioterapia Preventiva</span>
+            <h2 style="font-size: 22px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+              Centro de Fisioterapia, Ergonomia & Blindagem Articular
+            </h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px; max-width: 680px;">
+              16 protocolos clínicos para longevidade muscular, prevenção de impacto no supino, descompressão lombar e ergonomia no Mac.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="chip-btn" onclick="document.getElementById('pain-evaluator-section').scrollIntoView({behavior: 'smooth'})" style="border-color: rgba(255, 59, 48, 0.4); color: #FFA19B;">
+              🚨 Triagem de Desconforto
+            </button>
+            <button class="chip-btn" onclick="document.getElementById('ergo-station-section').scrollIntoView({behavior: 'smooth'})" style="border-color: rgba(255, 159, 10, 0.4); color: var(--amber);">
+              💻 Ergonomia Mac
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Physio Stats Strip -->
+      <div class="physio-stats-row">
+        <div class="physio-stat-card">
+          <div class="physio-stat-label">Mobilidade Hoje</div>
+          <div class="physio-stat-val mono" style="color: var(--cyan);">
+            <span id="physio-daily-min">6</span> <small>/ 15 min</small>
+          </div>
+          <div class="physio-stat-sub">Meta diária recomendada</div>
+        </div>
+        <div class="physio-stat-card">
+          <div class="physio-stat-label">Protocolos Concluídos</div>
+          <div class="physio-stat-val mono" style="color: var(--mint);">
+            <span id="physio-completed-count">2</span> <small>/ 16 ativos</small>
+          </div>
+          <div class="physio-stat-sub">Checklists marcados hoje</div>
+        </div>
+        <div class="physio-stat-card">
+          <div class="physio-stat-label">Score Ergonômico Mac</div>
+          <div class="physio-stat-val mono" style="color: var(--amber);">
+            <span id="ergo-score-display">80</span><small>%</small>
+          </div>
+          <div class="physio-stat-sub">Estação de trabalho regulada</div>
+        </div>
+        <div class="physio-stat-card">
+          <div class="physio-stat-label">Status Articular</div>
+          <div class="physio-stat-val mono" style="color: var(--volt); font-size: 18px; margin-top: 8px;">
+            Blindado
+          </div>
+          <div class="physio-stat-sub">Sem sobrecargas registradas</div>
+        </div>
+      </div>
+
+      <!-- Multi-Phase Smart Stretch Timer Banner -->
+      <div id="stretch-active-banner" class="stretch-banner-pro" style="display: none;">
+        <div class="stretch-banner-left">
+          <div class="stretch-banner-visual" id="stretch-banner-visual-box">
+            <img id="stretch-active-img" src="assets/physio/manguito_rotador_externo.svg" alt="Postura">
+          </div>
+          <div>
+            <div id="stretch-phase-badge" class="stretch-phase-badge" style="display: inline-block; margin-bottom: 4px;">Lado 1 (Esquerdo)</div>
+            <div id="stretch-active-name" style="font-size: 16px; font-weight: 800; color: var(--text-head);">
+              Ativação do Manguito Rotador Externo
+            </div>
+            <div id="stretch-phase-cue" style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">
+              Mantenha o cotovelo colado a 90° e respire suavemente
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div id="stretch-active-clock" class="mono" style="font-size: 28px; font-weight: 800; color: var(--cyan);">30s</div>
+          <button class="chip-btn" id="stretch-pause-btn" onclick="togglePauseStretchTimer()" style="color: var(--volt);">Pausar</button>
+          <button class="chip-btn" onclick="cancelStretchTimer()" style="color: var(--crimson);">Cancelar</button>
+        </div>
+      </div>
+
+      <!-- Category & Joint Filter Bar -->
+      <div class="physio-filter-section">
+        <div class="physio-filter-row" id="physio-category-filters">
+          <button class="physio-filter-chip active" data-cat="all">
+            <span>⚡ Todos</span> <span class="physio-count-badge" id="count-all">16</span>
+          </button>
+          <button class="physio-filter-chip" data-cat="pre_workout">
+            <span>🔥 Pré-Treino & Ativação</span> <span class="physio-count-badge" id="count-pre_workout">3</span>
+          </button>
+          <button class="physio-filter-chip" data-cat="post_workout">
+            <span>❄️ Pós-Treino & Descompressão</span> <span class="physio-count-badge" id="count-post_workout">6</span>
+          </button>
+          <button class="physio-filter-chip" data-cat="desk_ergonomics">
+            <span>💻 Rotina Anti-Desk Mac</span> <span class="physio-count-badge" id="count-desk_ergonomics">4</span>
+          </button>
+          <button class="physio-filter-chip" data-cat="joint_shielding">
+            <span>🛡️ Blindagem & Força Articular</span> <span class="physio-count-badge" id="count-joint_shielding">3</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Protocols Grid (Rendered dynamically by app.js) -->
+      <div class="physio-protocols-grid" id="physio-protocols-container">
+        <!-- Rendered by app.js with rich protocol cards -->
+      </div>
+
+      <!-- Section: Clinical Pain & Symptom Evaluator (Triagem Imediata) -->
+      <div id="pain-evaluator-section" class="pain-evaluator-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <span class="session-eyebrow" style="color: var(--crimson);">Triagem Biomecânica Imediata</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+              Avaliador Clínico de Desconforto Esportivo
+            </h3>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Sentiu fisgada, pinçamento ou rigidez? Selecione a articulação para diagnóstico instantâneo e protocolo de alívio.
+            </p>
+          </div>
+          <span class="tag-badge" style="background: rgba(255, 59, 48, 0.15); color: #FFA19B;">Medicina Baseada em Evidências</span>
+        </div>
+
+        <select id="pain-joint-select" class="pain-select-control">
+          <!-- Filled by app.js -->
+        </select>
+
+        <div id="pain-diag-container" class="pain-diag-box">
+          <!-- Filled dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- Section: Ergonomics Station for Mac -->
+      <div id="ergo-station-section" class="ergo-station-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <span class="session-eyebrow" style="color: var(--amber);">Checklist de Alta Produtividade</span>
+            <h3 style="font-size: 18px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+              Estação de Trabalho Mac (Ergonomia Teddy AI OS)
+            </h3>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Blindagem cervical, lombar e dos punhos para longas sessões de código e estratégia sem dor.
+            </p>
+          </div>
+          <button class="chip-btn" onclick="testMacErgoAlert()" style="color: var(--amber); border-color: rgba(255, 159, 10, 0.35);">
+            🔔 Testar Notificação de 90 Min
+          </button>
+        </div>
+
+        <div class="ergo-checklist-grid" id="ergo-checklist-container">
+          <!-- Filled by app.js -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: APPLE WATCH COMMAND CENTER (Exact Match to Teddy's Screenshot) -->
+    <!-- ========================================================================= -->
+    <section id="pane-apple" class="tab-pane" style="display: none;">
+      
+      <div class="nutrition-hero-card">
+        <span class="session-eyebrow" style="color: var(--mint);">Apple Watch HealthKit Hub</span>
+        <h2 style="font-size: 22px; font-weight: 800; color: var(--text-head); margin-top: 2px;">
+          Metas & Registros de Saúde do Apple Watch
+        </h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+          Configurações sincronizadas diretamente com os seus anéis e histórico de 1.168.649 pontos de saúde.
+        </p>
+      </div>
+
+      <!-- Live Sync Status & Controls -->
+      <div style="background: var(--bg-card); border: var(--hairline); border-radius: var(--r-card); padding: 18px 22px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="live-indicator"></div>
+          <div>
+            <div style="font-size: 13.5px; font-weight: 700; color: var(--text-head);" id="apple-sync-status-text">
+              Sincronização Apple Watch: Ativa
+            </div>
+            <div style="font-size: 11.5px; color: var(--text-muted);" id="apple-sync-time-text">
+              Último sinal recebido via HealthKit Live Engine
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="chip-btn active-action" onclick="refreshHealthData()">
+            ↻ Atualizar Métricas
+          </button>
+        </div>
+      </div>
+
+      <!-- Athletic Charts Dual Grid (Apple Fitness & WHOOP Style) -->
+      <section class="charts-grid-dual">
+        <!-- Chart 1: Weekly Step Activity Bars -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <span class="session-eyebrow" style="color: var(--mint);">Apple Fitness • Movimento</span>
+              <h3 class="chart-title">Atividade Semanal de Passos</h3>
+              <p class="chart-subtitle">Média ativa: 18.920 passos/dia (Meta: 8.000)</p>
+            </div>
+            <div class="chart-badge">+236% Meta</div>
+          </div>
+
+          <div class="step-bars-container">
+            <!-- 8.000 steps goal line -->
+            <div class="step-goal-line">
+              <span class="step-goal-label">Meta: 8.000</span>
+            </div>
+
+            <!-- Seg -->
+            <div class="step-day-col">
+              <div class="step-tooltip">14.800 passos • 360 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 65%;"></div>
+              </div>
+              <span class="step-day-label">Seg</span>
+            </div>
+
+            <!-- Ter -->
+            <div class="step-day-col">
+              <div class="step-tooltip">16.200 passos • 390 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 72%;"></div>
+              </div>
+              <span class="step-day-label">Ter</span>
+            </div>
+
+            <!-- Qua -->
+            <div class="step-day-col">
+              <div class="step-tooltip">19.400 passos • 480 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 86%;"></div>
+              </div>
+              <span class="step-day-label">Qua</span>
+            </div>
+
+            <!-- Qui -->
+            <div class="step-day-col">
+              <div class="step-tooltip">17.500 passos • 420 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 78%;"></div>
+              </div>
+              <span class="step-day-label">Qui</span>
+            </div>
+
+            <!-- Sex -->
+            <div class="step-day-col">
+              <div class="step-tooltip">21.300 passos • 510 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 95%;"></div>
+              </div>
+              <span class="step-day-label">Sex</span>
+            </div>
+
+            <!-- Sáb -->
+            <div class="step-day-col">
+              <div class="step-tooltip">18.450 passos • 435 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill exceeded" style="height: 82%;"></div>
+              </div>
+              <span class="step-day-label">Sáb</span>
+            </div>
+
+            <!-- Dom (Hoje) -->
+            <div class="step-day-col today">
+              <div class="step-tooltip">Hoje: 18.920 passos • 460 kcal</div>
+              <div class="step-bar-wrap">
+                <div class="step-bar-fill" style="height: 84%;"></div>
+              </div>
+              <span class="step-day-label">Dom</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart 2: Cardiovascular Area Wave (HRV & RHR) -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div>
+              <span class="session-eyebrow" style="color: var(--cyan);">Recuperação Parassimpática</span>
+              <h3 class="chart-title">Onda de HRV & Frequência de Repouso</h3>
+              <p class="chart-subtitle">SDNN: 52.0 ms • FC Repouso: 60 bpm • Prontidão: 88/100</p>
+            </div>
+            <div class="chart-badge" style="color: var(--cyan); border-color: rgba(90, 200, 250, 0.3);">Recuperado</div>
+          </div>
+
+          <div style="position: relative; width: 100%; height: 140px; padding-top: 10px;">
+            <svg class="wave-chart-svg" viewBox="0 0 320 110">
+              <defs>
+                <!-- Area Gradient Cyan -->
+                <linearGradient id="hrvAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#5AC8FA" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#5AC8FA" stop-opacity="0.0"/>
+                </linearGradient>
+                <!-- Area Gradient Crimson (RHR) -->
+                <linearGradient id="rhrLineGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#FF3B30"/>
+                  <stop offset="100%" stop-color="#FF9500"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Subtle Grid Horizontal Lines -->
+              <line x1="0" y1="20" x2="320" y2="20" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+              <line x1="0" y1="55" x2="320" y2="55" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+              <line x1="0" y1="90" x2="320" y2="90" stroke="rgba(255,255,255,0.05)" stroke-dasharray="3,3"/>
+
+              <!-- HRV Filled Area Under Curve -->
+              <path d="M 0 70 C 45 65, 80 50, 120 45 C 160 40, 200 55, 240 38 C 280 25, 305 32, 320 30 L 320 110 L 0 110 Z" fill="url(#hrvAreaGrad)"/>
+
+              <!-- HRV Line Stroke (Cyan) -->
+              <path d="M 0 70 C 45 65, 80 50, 120 45 C 160 40, 200 55, 240 38 C 280 25, 305 32, 320 30" fill="none" stroke="#5AC8FA" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- RHR Line Stroke (Crimson/Amber) -->
+              <path d="M 0 92 C 50 88, 90 95, 130 90 C 170 85, 210 90, 250 84 C 285 80, 305 82, 320 81" fill="none" stroke="url(#rhrLineGrad)" stroke-width="1.8" stroke-dasharray="4,3" opacity="0.85"/>
+
+              <!-- Active Today Pulse Dot on HRV -->
+              <circle cx="320" cy="30" r="5" fill="#5AC8FA" stroke="#08090C" stroke-width="2"/>
+              <circle cx="320" cy="30" r="9" fill="none" stroke="#5AC8FA" stroke-width="1" opacity="0.5"/>
+
+              <!-- Metric Point Labels -->
+              <text x="315" y="18" font-size="9" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#5AC8FA" text-anchor="end">52 ms</text>
+              <text x="315" y="98" font-size="8.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#FF3B30" text-anchor="end">60 bpm</text>
+            </svg>
+
+            <!-- Chart Footer Legend -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 11px; color: var(--text-muted);">
+              <div style="display: flex; gap: 14px;">
+                <span style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--cyan);"></span>
+                  Variabilidade (HRV)
+                </span>
+                <span style="display: flex; align-items: center; gap: 5px;">
+                  <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--crimson);"></span>
+                  FC Repouso
+                </span>
+              </div>
+              <span class="mono" style="font-size: 10.5px; color: var(--text-dim);">Últimos 7 dias</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- iOS Grouped Goals Table (Reprodução fiel do screenshot do Teddy) -->
+      <div class="apple-goals-table">
+        <div class="goal-table-row">
+          <span class="goal-table-label">Daily Step Goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: var(--mint); font-weight: 700;">8.000 steps</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+        <div class="goal-table-row">
+          <span class="goal-table-label">Daily Calorie Burn Goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: var(--crimson); font-weight: 700;">300 kcal</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+        <div class="goal-table-row">
+          <span class="goal-table-label">Daily Fat-Burning Time Goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: var(--amber); font-weight: 700;">30 min</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+        <div class="goal-table-row">
+          <span class="goal-table-label">Daily Stand Goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: var(--cyan); font-weight: 700;">12 hrs</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+        <div class="goal-table-row">
+          <span class="goal-table-label">Daily Sleep Goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: #BF5AF2; font-weight: 700;">8 hrs</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+        <div class="goal-table-row">
+          <span class="goal-table-label">Weight goal</span>
+          <div class="goal-table-val">
+            <span class="mono" style="color: var(--volt); font-weight: 700;">74 kg</span>
+            <span class="goal-chevron">›</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Insights Card -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-name">Aptidão VO2 Max</div>
+          <div class="metric-value mono" style="color: var(--mint);">41.8 <small>ml/kg/min</small></div>
+          <div class="metric-footer">Classificação Excelente para 32 anos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Frequência Repouso</div>
+          <div class="metric-value mono" style="color: var(--crimson);">61 <small>bpm</small></div>
+          <div class="metric-footer">Eficiência cardiovascular atlética</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Treinos Registrados</div>
+          <div class="metric-value mono" style="color: var(--volt);">109 <small>sessões</small></div>
+          <div class="metric-footer">Musculação, corrida e caminhadas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Readiness Score</div>
+          <div class="metric-value mono" style="color: var(--cyan);">85 <small>/ 100</small></div>
+          <div class="metric-footer">Pronto para treinos de alta intensidade</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bottom Floating Navigation Dock (Apple Minimalist Pill) -->
+  <nav class="bottom-dock">
+    <button class="dock-tab active" data-tab="workouts">Treinos</button>
+    <button class="dock-tab" data-tab="nutrition">Nutrição & Chef</button>
+    <button class="dock-tab" data-tab="physio">Fisioterapia</button>
+    <button class="dock-tab" data-tab="apple">Apple Watch</button>
+  </nav>
+
+  <!-- Slide-Over Biomechanics Video Drawer -->
+  <div id="exercise-slideover" class="slideover-overlay" onclick="if(event.target === this) closeExerciseModal()">
+    <div class="slideover-content">
+      <div class="slideover-top">
+        <div>
+          <span class="tag-badge target" style="margin-bottom: 6px; display: inline-block;">Execução Biomecânica Olympus</span>
+          <h2 id="modal-title" style="font-size: 20px; font-weight: 800; color: var(--text-head);">Exercício</h2>
+        </div>
+        <button class="btn-drawer-close" onclick="closeExerciseModal()" aria-label="Fechar">&times;</button>
+      </div>
+
+      <!-- Looping Video Frame -->
+      <div class="drawer-video-viewport" id="modal-video-box"></div>
+
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span id="modal-muscle" class="tag-badge target">Músculo Alvo</span>
+        <span id="modal-reps" class="tag-badge scheme">Séries & Repetições</span>
+      </div>
+
+      <div style="background: var(--bg-card); padding: 16px 18px; border-radius: var(--r-inner); border: var(--hairline);">
+        <h4 style="font-size: 13px; font-weight: 700; color: var(--volt); margin-bottom: 6px;">
+          Ponto Biomecânico & Dica do Treinador Olympus
+        </h4>
+        <p id="modal-notes" style="font-size: 13px; color: var(--text-body); line-height: 1.45;"></p>
+      </div>
+
+      <div style="margin-top: auto; padding-top: 16px; border-top: var(--hairline);">
+        <button class="btn-start-session" style="width: 100%; justify-content: center; padding: 12px;" onclick="closeExerciseModal(); setTimerPreset(60);">
+          Iniciar Descanso deste Exercício (60s)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=2.5"></script>
+</body>
+</html>

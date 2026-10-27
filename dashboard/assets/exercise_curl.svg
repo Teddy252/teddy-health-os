@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Preacher Bench Pad -->
+  <path d="M80 130 L115 80 L140 100" stroke="#252A3A" stroke-width="14" stroke-linecap="round"/>
+  <!-- Athlete Head & Torso -->
+  <circle cx="75" cy="55" r="12" fill="#E2E8F0"/>
+  <path d="M80 68 L95 105" stroke="#E2E8F0" stroke-width="16" stroke-linecap="round"/>
+  <!-- Arm Resting on Pad with Biceps Peak -->
+  <path d="M95 85 L125 78" stroke="#E2E8F0" stroke-width="10" stroke-linecap="round"/>
+  <!-- Biceps Glow -->
+  <ellipse cx="112" cy="74" rx="8" ry="6" fill="#FF3B30"/>
+  <!-- Forearm curling EZ bar -->
+  <path d="M125 78 L115 50" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <!-- EZ Bar / Plates -->
+  <circle cx="115" cy="46" r="10" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+</svg>

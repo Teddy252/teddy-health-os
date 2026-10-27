@@ -1,0 +1,87 @@
+{
+  "updated_at": "2026-10-24T08:32:33.247294",
+  "source_archive": "media_1792836884294_a885fd6f.zip",
+  "athlete": {
+    "name": "Teddy Tchogninou",
+    "age": 32,
+    "current_weight_kg": 72.5,
+    "target_weight_kg": 74.0
+  },
+  "metrics": {
+    "resting_heart_rate_bpm": {
+      "recent_average": 60.0,
+      "interpretation": "Excelente saúde cardiovascular e tonus parassimpático"
+    },
+    "vo2_max_ml_kg_min": {
+      "recent_average": 41.9,
+      "interpretation": "Aptidão cardiorrespiratória classificada como Boa a Excelente"
+    },
+    "hrv_sdnn_ms": {
+      "recent_average": 52.0,
+      "readiness_score": 88,
+      "interpretation": "Prontidão física e recuperação muscular em níveis saudáveis"
+    },
+    "daily_steps": {
+      "average_active_days": 18920,
+      "goal": 8000,
+      "status": "Meta superada consistentemente (estilo de vida altamente ativo)",
+      "last_sync": "2026-10-24T10:51:38.457163"
+    },
+    "active_energy_kcal": {
+      "average_daily": 460,
+      "goal": 300,
+      "status": "Gasto calórico ativo elevado decorrente de alta movimentação",
+      "last_sync": "2026-10-24T10:51:38.457163"
+    },
+    "basal_energy_kcal": {
+      "measured_average": 1422,
+      "calculated_bmr": 1715
+    },
+    "total_tdee_kcal": {
+      "recent_average": 1759,
+      "target_intake": 2680
+    },
+    "sleep_hours": {
+      "measured_average": 8.4,
+      "target": 8.0
+    },
+    "sleep": {
+      "duration_hours": 8.1
+    }
+  },
+  "workouts_recorded_count": 109,
+  "recent_workouts": [
+    {
+      "type": "HKWorkoutActivityTypeRunning",
+      "startDate": "2026-05-30 14:13:52 +0100",
+      "duration_min": 119.0,
+      "calories": 0
+    },
+    {
+      "type": "HKWorkoutActivityTypeWalking",
+      "startDate": "2026-06-27 16:28:47 +0100",
+      "duration_min": 305.6,
+      "calories": 0
+    },
+    {
+      "type": "HKWorkoutActivityTypeRunning",
+      "startDate": "2026-08-01 11:59:32 +0100",
+      "duration_min": 113.6,
+      "calories": 0
+    },
+    {
+      "type": "HKWorkoutActivityTypeRunning",
+      "startDate": "2026-08-08 12:23:00 +0100",
+      "duration_min": 78.8,
+      "calories": 0
+    },
+    {
+      "type": "HKWorkoutActivityTypeRunning",
+      "startDate": "2026-08-15 15:29:22 +0100",
+      "duration_min": 100.3,
+      "calories": 0
+    }
+  ],
+  "last_sync_timestamp": "2026-10-24T10:51:38.457163",
+  "sync_source": "Apple Watch Ultra (Simulated Sync)"
+}

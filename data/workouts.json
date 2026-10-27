@@ -1,0 +1,374 @@
+{
+  "gym_origin": "Olympus Academia",
+  "athlete": "Teddy Tchogninou",
+  "style": "Old School Classic Bodybuilding (Golden Era)",
+  "periodization": "Hipertrofia & Densidade Muscular",
+  "weekly_splits": [
+    {
+      "id": "treino_a",
+      "name": "Treino A",
+      "subtitle": "Peito, Bíceps & Antebraço",
+      "focus": "Peitoral Maior (Clavicular e Esternal) e Flexores de Cotovelo",
+      "muscle_group_tags": ["chest", "biceps", "forearms"],
+      "warmup": {
+        "duration_min": 8,
+        "modalities": ["Esteira Leve", "Bicicleta"],
+        "mobility_protocol": "4 min de ativação de manguito rotador externo no elástico + mobilidade torácica no banco"
+      },
+      "exercises": [
+        {
+          "id": "supino_reto",
+          "name": "Supino Reto com Barra ou Halteres",
+          "target_muscle": "Peitoral Maior (Porção Média/Esternal)",
+          "secondary_muscles": ["Tríceps Braquial", "Deltoide Anterior"],
+          "sets": 4,
+          "reps": "10-8",
+          "intensity": "Pirâmide Crescente de Cargas",
+          "rest_sec": 90,
+          "notes": "Escápulas aduzidas e travadas no banco. Descer a barra controlando em 2 segundos até o terço inferior do peito.",
+          "asset_key": "chest_bench_press"
+        },
+        {
+          "id": "supino_inclinado",
+          "name": "Supino Inclinado com Halteres ou Barra",
+          "target_muscle": "Peitoral Superior (Porção Clavicular)",
+          "secondary_muscles": ["Deltoide Anterior", "Tríceps"],
+          "sets": 4,
+          "reps": "10-8",
+          "intensity": "Sobrecarga Progressiva",
+          "rest_sec": 90,
+          "notes": "Banco inclinado a 30º ou 45º. Foco total em contrair a porção superior do peitoral no topo do movimento.",
+          "asset_key": "chest_incline_press"
+        },
+        {
+          "id": "voador_peck_deck",
+          "name": "Voador / Peck Deck Máquina",
+          "target_muscle": "Peitoral (Isolamento e Densidade Esternal)",
+          "secondary_muscles": ["Deltoide Anterior"],
+          "sets": 4,
+          "reps": "10",
+          "intensity": "Pico de Contração de 1 segundo",
+          "rest_sec": 60,
+          "notes": "Cotovelos levemente flexionados e alinhados com o peito. Aperte o centro do peitoral no ponto de encontro.",
+          "asset_key": "chest_fly"
+        },
+        {
+          "id": "crucifixo_crossover",
+          "name": "Crucifixo Reto / Cross Over na Polia",
+          "target_muscle": "Peitoral Maior (Alongamento & Fechamento)",
+          "secondary_muscles": ["Deltoide Anterior"],
+          "sets": 4,
+          "reps": "12-8",
+          "intensity": "Controle Excêntrico",
+          "rest_sec": 60,
+          "notes": "Sinta o estiramento das fibras peitorais na descida sem hiperestender os ombros.",
+          "asset_key": "chest_crossover"
+        },
+        {
+          "id": "rosca_scott",
+          "name": "Rosca Scott com Barra W",
+          "target_muscle": "Bíceps Braquial (Cabeça Curta & Pico)",
+          "secondary_muscles": ["Braquial", "Braquiorradial"],
+          "sets": 4,
+          "reps": "10",
+          "intensity": "Isolamento Estrito",
+          "rest_sec": 60,
+          "notes": "Braços totalmente apoiados no estofado. Não deixe os ombros avançarem na subida.",
+          "asset_key": "arms_preacher_curl"
+        },
+        {
+          "id": "rosca_direta_barra",
+          "name": "Rosca Direta com Barra",
+          "target_muscle": "Bíceps Braquial (Volume Geral)",
+          "secondary_muscles": ["Antebraços"],
+          "sets": 4,
+          "reps": "10-8",
+          "intensity": "Carga Máxima Controlada",
+          "rest_sec": 75,
+          "notes": "Cotovelos colados ao tronco. Evite usar impulso lombar (balanço).",
+          "asset_key": "arms_barbell_curl"
+        },
+        {
+          "id": "rosca_alternada",
+          "name": "Rosca Alternada com Halteres",
+          "target_muscle": "Bíceps Braquial & Braquiorradial",
+          "secondary_muscles": ["Supinador"],
+          "sets": 3,
+          "reps": "10",
+          "intensity": "Supinação Completa no Topo",
+          "rest_sec": 60,
+          "notes": "Inicie com pegada neutra e supine o punho rodando para fora durante a subida.",
+          "asset_key": "arms_alternate_curl"
+        },
+        {
+          "id": "rosca_concentrada_martelo",
+          "name": "Rosca Concentrada ou Martelo",
+          "target_muscle": "Braquial Anterior & Pico de Bíceps",
+          "secondary_muscles": ["Braquiorradial"],
+          "sets": 3,
+          "reps": "10",
+          "intensity": "Pico de Tensão Máxima",
+          "rest_sec": 60,
+          "notes": "Na rosca martelo: pegada neutra para empurrar o bíceps para cima alargando o braço.",
+          "asset_key": "arms_hammer_curl"
+        }
+      ],
+      "post_workout_cooldown": {
+        "duration_min": 5,
+        "physio_stretches": [
+          "Alongamento de peitoral no batente da porta (30s cada lado)",
+          "Alongamento de bíceps com braço estendido e palma na parede (30s cada lado)",
+          "Descompressão de antebraço e punhos"
+        ]
+      }
+    },
+    {
+      "id": "treino_b",
+      "name": "Treino B",
+      "subtitle": "Ombros, Trapézio & Tríceps",
+      "focus": "Deltoides (Lateral, Anterior, Posterior), Trapézio e Tríceps Braquial",
+      "muscle_group_tags": ["shoulders", "traps", "triceps"],
+      "warmup": {
+        "duration_min": 8,
+        "modalities": ["Elíptico", "Bicicleta"],
+        "mobility_protocol": "Mobilidade de escápulas e elevações em Y no banco inclinado"
+      },
+      "exercises": [
+        {
+          "id": "desenvolvimento_halteres",
+          "name": "Desenvolvimento com Halteres Sentado",
+          "target_muscle": "Deltoide Anterior & Médio",
+          "secondary_muscles": ["Tríceps", "Trapézio Superior"],
+          "sets": 4,
+          "reps": "10",
+          "intensity": "Sobrecarga de Força",
+          "rest_sec": 90,
+          "notes": "Suba os halteres em arco controlado sem bater no topo. Desça até a altura das orelhas.",
+          "asset_key": "shoulders_dumbbell_press"
+        },
+        {
+          "id": "desenvolvimento_frontal_maq",
+          "name": "Desenvolvimento Frontal na Máquina / Barra",
+          "target_muscle": "Deltoide Anterior",
+          "secondary_muscles": ["Tríceps", "Peitoral Superior"],
+          "sets": 4,
+          "reps": "12-8",
+          "intensity": "Pirâmide Crescente",
+          "rest_sec": 75,
+          "notes": "Trajetória contínua mantendo a tensão muscular sem descansar no ponto baixo.",
+          "asset_key": "shoulders_machine_press"
+        },
+        {
+          "id": "elevacao_lateral",
+          "name": "Elevação Lateral com Halteres",
+          "target_muscle": "Deltoide Lateral (Ombro em V / Efeito Esculpido)",
+          "secondary_muscles": ["Trapézio"],
+          "sets": 4,
+          "reps": "12-10",
+          "intensity": "Cadência Lenta na Descida (3s)",
+          "rest_sec": 60,
+          "notes": "Cotovelos ligeiramente flexionados e liderando o movimento até a linha paralela ao chão.",
+          "asset_key": "shoulders_lateral_raise"
+        },
+        {
+          "id": "remada_alta",
+          "name": "Remada Alta na Barra ou Polia",
+          "target_muscle": "Deltoide Lateral & Trapézio",
+          "secondary_muscles": ["Bíceps", "Braquial"],
+          "sets": 3,
+          "reps": "12",
+          "intensity": "Tração Estrita",
+          "rest_sec": 60,
+          "notes": "Pegada ligeiramente mais larga que os ombros para poupar a articulação glenoumeral.",
+          "asset_key": "shoulders_upright_row"
+        },
+        {
+          "id": "encolhimento_trapezio",
+          "name": "Encolhimento de Ombros com Halteres",
+          "target_muscle": "Trapézio Superior",
+          "secondary_muscles": ["Elevador da Escápula"],
+          "sets": 4,
+          "reps": "15",
+          "intensity": "Pausa de 2s no Topo",
+          "rest_sec": 60,
+          "notes": "Eleve os ombros reto em direção às orelhas. Não rode os ombros em círculos.",
+          "asset_key": "shoulders_shrug"
+        },
+        {
+          "id": "triceps_pulley_reto",
+          "name": "Tríceps Pulley (Barra Reta)",
+          "target_muscle": "Tríceps Braquial (Cabeça Lateral & Medial)",
+          "secondary_muscles": ["Antebraço"],
+          "sets": 4,
+          "reps": "10",
+          "intensity": "Contração Total no Fundo",
+          "rest_sec": 60,
+          "notes": "Cotovelos travados ao lado do corpo; apenas o antebraço se movimenta.",
+          "asset_key": "arms_triceps_pushdown"
+        },
+        {
+          "id": "triceps_corda",
+          "name": "Tríceps Polia com Corda",
+          "target_muscle": "Tríceps Braquial (Pico Lateral)",
+          "secondary_muscles": ["Estabilizadores de Punho"],
+          "sets": 4,
+          "reps": "12-10",
+          "intensity": "Abertura Lateral no Final",
+          "rest_sec": 60,
+          "notes": "Afaste as pontas da corda na parte mais baixa para contração máxima da cabeça lateral.",
+          "asset_key": "arms_triceps_rope"
+        },
+        {
+          "id": "triceps_testa_frances",
+          "name": "Tríceps Testa ou Rosca Francesa",
+          "target_muscle": "Tríceps Braquial (Cabeça Longa / Volume Posterior)",
+          "secondary_muscles": ["Ombro"],
+          "sets": 3,
+          "reps": "10-RM",
+          "intensity": "Até a Falha Concêntrica",
+          "rest_sec": 75,
+          "notes": "Trabalha a cabeça longa do tríceps responsável pelo volume do braço de lado.",
+          "asset_key": "arms_skull_crusher"
+        }
+      ],
+      "post_workout_cooldown": {
+        "duration_min": 5,
+        "physio_stretches": [
+          "Alongamento de tríceps acima da cabeça puxando o cotovelo (30s cada)",
+          "Alongamento de deltoide posterior cruzando o braço na frente do peito (30s)",
+          "Relaxamento e descompressão cervical"
+        ]
+      }
+    },
+    {
+      "id": "treino_c",
+      "name": "Treino C",
+      "subtitle": "Pernas Completas & Costas",
+      "focus": "Quadríceps, Isquiotibiais, Panturrilhas, Grande Dorsal e Romboides",
+      "muscle_group_tags": ["legs", "back", "calves"],
+      "warmup": {
+        "duration_min": 8,
+        "modalities": ["Bicicleta com Carga Leve", "Esteira"],
+        "mobility_protocol": "5 min de mobilidade de tornozelos na parede + alongamento dinâmico de flexores de quadril"
+      },
+      "exercises": [
+        {
+          "id": "leg_press_45",
+          "name": "Leg Press 45º",
+          "target_muscle": "Quadríceps & Glúteos",
+          "secondary_muscles": ["Isquiotibiais", "Panturrilhas"],
+          "sets": 4,
+          "reps": "12",
+          "intensity": "Sobrecarga de Carga com Amplitude Profunda",
+          "rest_sec": 90,
+          "notes": "Pés na largura dos ombros. Desça até 90º sem desgrudar a lombar do encosto.",
+          "asset_key": "legs_leg_press"
+        },
+        {
+          "id": "extensor_pernas",
+          "name": "Cadeira Extensora",
+          "target_muscle": "Quadríceps (Reto Femoral & Vasto Medial/Lateral)",
+          "secondary_muscles": ["Ligamento Patelar"],
+          "sets": 4,
+          "reps": "12-10",
+          "intensity": "Pausa de 1s na Extensão",
+          "rest_sec": 60,
+          "notes": "Controle a volta em 3 segundos sentindo o corte frontal da coxa.",
+          "asset_key": "legs_extension"
+        },
+        {
+          "id": "flexor_pernas",
+          "name": "Mesa ou Cadeira Flexora",
+          "target_muscle": "Posteriores de Coxa (Isquiotibiais)",
+          "secondary_muscles": ["Glúteos", "Gastrocnêmio"],
+          "sets": 4,
+          "reps": "12-RM",
+          "intensity": "Repetições Máximas até a Falha",
+          "rest_sec": 60,
+          "notes": "Quadril colado no banco para não sobrecarregar a coluna lombar.",
+          "asset_key": "legs_curl"
+        },
+        {
+          "id": "hack_squat_agacham",
+          "name": "Hack Squat ou Agachamento Livre",
+          "target_muscle": "Coxas Completas & Cadeia Posterior",
+          "secondary_muscles": ["Glúteos", "Core / Eretores da Espinha"],
+          "sets": 4,
+          "reps": "10-RM",
+          "intensity": "Poder e Densidade Global",
+          "rest_sec": 90,
+          "notes": "Peito aberto, olhar para frente, empurre o chão pelos calcanhares.",
+          "asset_key": "legs_hack_squat"
+        },
+        {
+          "id": "adutor_abdutor",
+          "name": "Cadeira Adutora & Abdutora",
+          "target_muscle": "Adutores & Glúteo Médio",
+          "secondary_muscles": ["Estabilizadores da Bacia"],
+          "sets": 4,
+          "reps": "12",
+          "intensity": "Bi-set ou Séries Alternadas",
+          "rest_sec": 60,
+          "notes": "Fortalece a bacia e previne dores lombares e de joelho ao caminhar e agachar.",
+          "asset_key": "legs_adductor"
+        },
+        {
+          "id": "panturrilha",
+          "name": "Panturrilha em Pé ou Sentado",
+          "target_muscle": "Gastrocnêmio & Sóleo",
+          "secondary_muscles": ["Tendão de Aquiles"],
+          "sets": 4,
+          "reps": "20 ou Drop-set",
+          "intensity": "Amplitude Máxima (alongar no fundo e contrair no topo)",
+          "rest_sec": 45,
+          "notes": "Faça a pausa de 1 segundo no pico alto em ponta de pé antes de descer.",
+          "asset_key": "legs_calf_raise"
+        },
+        {
+          "id": "pulley_frontal_costas",
+          "name": "Pulley Frontal / Puxada Alta",
+          "target_muscle": "Grande Dorsal (Asas das Costas / V-Taper)",
+          "secondary_muscles": ["Bíceps", "Braquial", "Redondo Maior"],
+          "sets": 4,
+          "reps": "12-10",
+          "intensity": "Pegada Aberta Pronada",
+          "rest_sec": 75,
+          "notes": "Puxe a barra em direção à clavícula projetando o peito para cima.",
+          "asset_key": "back_lat_pulldown"
+        },
+        {
+          "id": "remada_sentado_triangulo",
+          "name": "Remada Baixa Sentado com Triângulo",
+          "target_muscle": "Miolo das Costas & Romboides (Espessura)",
+          "secondary_muscles": ["Bíceps", "Latíssimo"],
+          "sets": 4,
+          "reps": "10",
+          "intensity": "Aperto Escapular no Final",
+          "rest_sec": 75,
+          "notes": "Puxe o triângulo contra o abdômen sem inclinar o tronco excessivamente para trás.",
+          "asset_key": "back_seated_cable_row"
+        },
+        {
+          "id": "remada_curvada_serrote",
+          "name": "Remada Curvada ou Serrote Unilateral",
+          "target_muscle": "Dorsal & Trapézio Médio/Inferior",
+          "secondary_muscles": ["Eretores da Espinha", "Antebraços"],
+          "sets": 3,
+          "reps": "12-10",
+          "intensity": "Amplitude Profunda de Tração",
+          "rest_sec": 60,
+          "notes": "No serrote: apoie no banco e puxe o halter rente ao quadril sentindo a dorsal engatar.",
+          "asset_key": "back_dumbbell_row"
+        }
+      ],
+      "post_workout_cooldown": {
+        "duration_min": 6,
+        "physio_stretches": [
+          "Postura da Criança (Child's Pose) para descompressão lombar (45s)",
+          "Alongamento de glúteos e piriforme em 4 no colchonete (30s cada)",
+          "Alongamento de panturrilhas e cadeia posterior encostado na parede"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <!-- Incline Bench 35 deg -->
+  <line x1="50" y1="130" x2="140" y2="70" stroke="#252A3A" stroke-width="12" stroke-linecap="round"/>
+  <line x1="140" y1="70" x2="160" y2="130" stroke="#1C1F2B" stroke-width="8"/>
+  <!-- Athlete Torso on Incline -->
+  <ellipse cx="75" cy="100" rx="10" ry="9" fill="#E2E8F0"/>
+  <path d="M85 105 L130 75" stroke="#E2E8F0" stroke-width="18" stroke-linecap="round"/>
+  <!-- Upper Chest Glow -->
+  <path d="M92 98 L115 82" stroke="#FF3B30" stroke-width="8" stroke-linecap="round"/>
+  <!-- Dumbbells Pushed Up -->
+  <path d="M100 88 L108 50" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <rect x="100" y="38" width="16" height="10" rx="2" fill="#F59E0B"/>
+  <path d="M118 80 L126 45" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <rect x="120" y="32" width="16" height="10" rx="2" fill="#F59E0B"/>
+</svg>

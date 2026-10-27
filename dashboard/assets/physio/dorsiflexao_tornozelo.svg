@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" fill="none">
+  <defs>
+    <linearGradient id="cyanGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5AC8FA"/>
+      <stop offset="100%" stop-color="#007AFF"/>
+    </linearGradient>
+    <linearGradient id="voltGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4FF00"/>
+      <stop offset="100%" stop-color="#30D158"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF3B30"/>
+      <stop offset="100%" stop-color="#FF9500"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background Canvas -->
+  <rect width="240" height="160" rx="10" fill="#0D0F16" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <!-- Floor / Ground Line -->
+  <line x1="20" y1="140" x2="220" y2="140" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  
+  <!-- Wall on Right -->
+  <line x1="200" y1="20" x2="200" y2="140" stroke="#5AC8FA" stroke-width="4"/>
+  <line x1="200" y1="20" x2="215" y2="35" stroke="rgba(90,200,250,0.3)" stroke-width="1.5"/>
+  <line x1="200" y1="60" x2="215" y2="75" stroke="rgba(90,200,250,0.3)" stroke-width="1.5"/>
+  <line x1="200" y1="100" x2="215" y2="115" stroke="rgba(90,200,250,0.3)" stroke-width="1.5"/>
+  <!-- Hip & Thigh -->
+  <circle cx="90" cy="55" r="10" fill="#1A1D28" stroke="#2A2E3D"/>
+  <path d="M90 65 L135 75" stroke="#5AC8FA" stroke-width="4" stroke-linecap="round"/>
+  <!-- Knee advancing forward -->
+  <path d="M135 75 L185 85" stroke="#D4FF00" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <!-- Lower leg / shin -->
+  <path d="M185 85 L145 140" stroke="#D4FF00" stroke-width="4" stroke-linecap="round"/>
+  <!-- Foot on ground -->
+  <path d="M140 140 L185 140" stroke="#5AC8FA" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Calcanhar Travado indicator -->
+  <circle cx="145" cy="140" r="4" fill="#FF3B30" filter="url(#glow)"/>
+  <!-- Forward Arrow to wall -->
+  <path d="M188 85 L198 85" stroke="#D4FF00" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="198,85 192,81 192,89" fill="#D4FF00"/>
+  <!-- Callouts -->
+  <text x="125" y="152" fill="#FF3B30" font-family="monospace" font-size="8.5" font-weight="bold">Calcanhar no Chão</text>
+  <text x="145" y="75" fill="#D4FF00" font-family="monospace" font-size="8.5" font-weight="bold">Joelho avança</text>
+  <text x="28" y="25" fill="#5AC8FA" font-family="sans-serif" font-size="10" font-weight="bold">KNEE-TO-WALL</text>
+  <text x="28" y="38" fill="rgba(255,255,255,0.4)" font-family="sans-serif" font-size="8">Dorsiflexão • Destrava Agachamento</text>
+
+</svg>
