@@ -3,7 +3,7 @@
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 BASE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 HTML_FILE="$BASE_DIR/dashboard/guia_cozinha_print.html"
-PDF_OUT="$BASE_DIR/docs/Guia_da_Cozinha_Teddy_Mensal.pdf"
+PDF_OUT="$BASE_DIR/docs/guia_da_cozinha_mensal.pdf"
 
 if [ -f "$CHROME" ]; then
   "$CHROME" --headless=new --disable-gpu --user-data-dir=/tmp/chrome-pdf-user-data --no-pdf-header-footer --print-to-pdf="$PDF_OUT" "file://$HTML_FILE"

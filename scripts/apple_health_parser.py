@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Apple Health Export Streaming Parser — Teddy Health OS
+Apple Health Export Streaming Parser — Health & Fitness Athlete OS
 Processa arquivos export.xml grandes (300MB+) sem sobrecarregar a memória RAM.
 Atualiza data/health_summary.json com as métricas mais recentes de sono, FC, HRV, passos e energia.
 """
@@ -133,7 +133,7 @@ def parse_apple_health_zip(zip_path):
         "updated_at": datetime.datetime.now().isoformat(),
         "source_archive": os.path.basename(zip_path),
         "athlete": {
-            "name": "Teddy Tchogninou",
+            "name": "Atleta",
             "age": 32,
             "current_weight_kg": 72.5,
             "target_weight_kg": 74.0
@@ -189,5 +189,7 @@ def parse_apple_health_zip(zip_path):
     return True
 
 if __name__ == "__main__":
-    test_zip = sys.argv[1] if len(sys.argv) > 1 else "/Users/teddytchogninou/.gemini/antigravity/brain/286fef82-837f-48cd-8f13-4c00fb915f40/.user_uploaded/media_1792836884294_a885fd6f.zip"
-    parse_apple_health_zip(test_zip)
+    if len(sys.argv) > 1:
+        parse_apple_health_zip(sys.argv[1])
+    else:
+        print("Uso: python3 apple_health_parser.py <caminho_para_export.zip>")

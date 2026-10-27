@@ -1,51 +1,51 @@
 {
   "athlete": {
-    "name": "Teddy Tchogninou",
-    "birth_date": "1994-06-03",
-    "age": 32,
-    "gender": "male",
-    "height_cm": 173,
-    "current_weight_kg": 72.5,
-    "target_weight_kg": 74.0,
-    "bmr_kcal": 1715,
-    "tdee_kcal": 2450,
-    "target_calories_kcal": 2680,
-    "fitness_goal": "Hipertrofia Limpa com Densidade Muscular Máxima",
-    "progress_percent": 98.0
+    "name": "Atleta",
+    "birth_date": "1998-05-15",
+    "age": 28,
+    "gender": "female",
+    "height_cm": 165,
+    "current_weight_kg": 62.0,
+    "target_weight_kg": 60.0,
+    "bmr_kcal": 1420,
+    "tdee_kcal": 2050,
+    "target_calories_kcal": 2100,
+    "fitness_goal": "Condicionamento Físico, Definição Muscular & Vitalidade",
+    "progress_percent": 90.0
   },
   "nutrition_targets": {
-    "daily_calories": 2680,
-    "protein_g": 155,
-    "protein_kcal": 620,
-    "carbs_g": 350,
-    "carbs_kcal": 1400,
-    "fats_g": 72,
-    "fats_kcal": 648,
-    "water_target_liters": 3.0,
-    "creatine_protocol": "5g diariamente (todos os dias, sem interrupção)"
+    "daily_calories": 2100,
+    "protein_g": 130,
+    "protein_kcal": 520,
+    "carbs_g": 260,
+    "carbs_kcal": 1040,
+    "fats_g": 55,
+    "fats_kcal": 495,
+    "water_target_liters": 2.5,
+    "creatine_protocol": "3g a 5g diariamente (todos os dias, sem interrupção)"
   },
   "apple_watch_official_goals": {
     "daily_steps": 8000,
-    "daily_active_calories": 300,
+    "daily_active_calories": 350,
     "daily_exercise_minutes": 30,
     "daily_stand_hours": 12,
     "daily_sleep_hours": 8,
-    "target_weight_kg": 74
+    "target_weight_kg": 60.0
   },
   "favorite_foods": [
-    "Arroz (branco, basmati, jasmim)",
-    "Banana da terra (grelhada, cozida, assada)",
-    "Feijão de todo tipo (preto, carioca, fradinho, manteiga)",
-    "Peito de frango e sobrecoxa desossada",
-    "Carne bovina magra (patinho, alcatra, filé mignon)",
-    "Batata inglesa, batata doce e mandioquinha",
+    "Arroz (branco, basmati, integral)",
+    "Banana da terra ou banana prata com canela",
+    "Feijão (preto, carioca, fradinho)",
+    "Peito de frango grelhado e peixes (salmão/tilápia)",
+    "Carne bovina magra (patinho moído, filé)",
+    "Batata doce, inglesa e abóbora assada",
     "Ovos (mexidos cremosos, cozidos, omeletes)",
-    "Frutas frescas (banana, morango, maçã, abacaxi)",
-    "Aveia, mel puro e canela"
+    "Frutas frescas (frutas vermelhas, morango, maçã, abacaxi)",
+    "Iogurte natural, aveia, whey protein e mel"
   ],
   "domestic_setup": {
-    "cook_type": "Empregada doméstica / cozinheira",
-    "shopping_frequency": "Compras mensais de atacado + feira/açougue para reposição",
+    "cook_type": "Auto-preparo / Meal Prep semanal / Apoio doméstico",
+    "shopping_frequency": "Compras semanais ou quinzenais com lista inteligente",
     "kitchen_guidance": "Guia da Cozinha com medidas caseiras em PDF A4 impresso para geladeira"
   }
 }

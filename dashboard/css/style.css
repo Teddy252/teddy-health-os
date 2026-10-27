@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TEDDY HEALTH & FITNESS OS — ATHLETE PRO EDITION
+   HEALTH & FITNESS OS — ATHLETE PRO EDITION
    Bespoke Athletic Editorial UI • Zero AI-Slop • Apple Fitness+ & WHOOP Language
    Hardware Double-Bezel • 0.5px Hairlines • Tabular Numerals • Tactile Motion
    ========================================================================== */
@@ -1014,7 +1014,7 @@ body {
 }
 
 /* ==========================================================================
-   APPLE WATCH GOALS LIST (Exact Match to Teddy's Screenshot)
+   APPLE WATCH GOALS LIST (iOS Native Cards)
    ========================================================================== */
 .apple-goals-table {
   background: var(--bg-card);

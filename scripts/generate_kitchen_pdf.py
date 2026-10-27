@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-TEDDY HEALTH & FITNESS OS — KITCHEN GUIDE & MEAL PLAN PDF GENERATOR
+HEALTH & FITNESS OS — KITCHEN GUIDE & MEAL PLAN PDF GENERATOR
 Swiss Editorial Design • A4 Pixel-Perfect Layout • Household Measures
 """
 
@@ -36,7 +36,7 @@ def create_kitchen_guide_pdf(output_path):
 
     # Header Row
     p1.insert_text(fitz.Point(margin, y + 16), "GUIA DA COZINHA & CARDÁPIO MENSAL", fontname="helv", fontsize=16, color=c_dark)
-    p1.insert_text(fitz.Point(margin, y + 30), "CASA DO TEDDY • REFEIÇÕES DE ALTA PERFORMANCE • MEDIDAS SEM BALANÇA", fontname="helv", fontsize=8.5, color=c_text_muted)
+    p1.insert_text(fitz.Point(margin, y + 30), "REFEIÇÕES DE ALTA PERFORMANCE • MEDIDAS PRÁTICAS SEM BALANÇA", fontname="helv", fontsize=8.5, color=c_text_muted)
     
     # Target Badge on right
     badge_rect = fitz.Rect(W - margin - 110, y + 4, W - margin, y + 26)
@@ -157,7 +157,7 @@ def create_kitchen_guide_pdf(output_path):
 
     # Footer Folha 1
     p1.draw_line(fitz.Point(margin, H - 28), fitz.Point(W - margin, H - 28), color=c_border, width=0.8)
-    p1.insert_text(fitz.Point(margin, H - 16), "Teddy Health & Fitness OS • Folha 1 de 2 • Fixar na porta da geladeira para consulta rápida", fontname="helv", fontsize=7.5, color=c_text_muted)
+    p1.insert_text(fitz.Point(margin, H - 16), "Health & Fitness OS • Folha 1 de 2 • Fixar na porta da geladeira para consulta rápida", fontname="helv", fontsize=7.5, color=c_text_muted)
 
     # =========================================================================
     # FOLHA 2: LOGÍSTICA DE COMPRAS & SEGREDOS DO CHEF
@@ -292,7 +292,7 @@ def create_kitchen_guide_pdf(output_path):
 
     # Footer Folha 2
     p2.draw_line(fitz.Point(margin, H - 28), fitz.Point(W - margin, H - 28), color=c_border, width=0.8)
-    p2.insert_text(fitz.Point(margin, H - 16), "Teddy Health & Fitness OS • Folha 2 de 2 • Guarde junto à lista de compras da despensa", fontname="helv", fontsize=7.5, color=c_text_muted)
+    p2.insert_text(fitz.Point(margin, H - 16), "Health & Fitness OS • Folha 2 de 2 • Guarde junto à lista de compras da despensa", fontname="helv", fontsize=7.5, color=c_text_muted)
 
     # Save PDF
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -301,5 +301,5 @@ def create_kitchen_guide_pdf(output_path):
     print(f"PDF generated successfully at: {output_path}")
 
 if __name__ == "__main__":
-    out = "Internos_Teddy/Teddy_Health_OS/docs/guia_da_cozinha_mensal.pdf"
+    out = os.path.join(os.path.dirname(__file__), "..", "docs", "guia_da_cozinha_mensal.pdf")
     create_kitchen_guide_pdf(out)

@@ -1,22 +1,22 @@
-# GUIA DA COZINHA & CARDÁPIO MENSAL — CASA DO TEDDY
+# GUIA DA COZINHA & CARDÁPIO MENSAL — MODELO OPERACIONAL
 **Plano Nutricional das 4 Semanas | Medidas Caseiras | Lista de Compras**
 
-> **Mensagem do Chef para a Cozinheira:**
-> Olá! Este guia foi feito para facilitar o seu trabalho no dia a dia. Aqui você não precisa pesar nada em balança: todas as quantidades estão em **medidas caseiras práticas** (conchas, escumadeiras e bifes da palma da mão).
-> A comida do Teddy é simples, muito saborosa e saudável: arroz, feijão com bastante alho e louro, banana da terra dourada, frango, carne bovina macia, batatas e ovos. Muito obrigado pelo seu carinho e dedicação!
+> **Mensagem para a Cozinha / Meal Prep:**
+> Olá! Este guia foi feito para facilitar o preparo de refeições no dia a dia. Aqui você não precisa pesar nada em balança: todas as quantidades estão em **medidas caseiras práticas** (conchas, escumadeiras e bifes da palma da mão).
+> As refeições são simples, muito saborosas e saudáveis: arroz, feijão com bastante alho e louro, banana da terra dourada, frango, carne bovina macia, batatas e ovos. Muito obrigado pelo seu carinho e dedicação!
 
 ---
 
 ## 1. GUIA RÁPIDO DE MEDIDAS (SEM BALANÇA)
 
-| Alimento | Como Servir no Prato do Teddy |
+| Alimento | Como Servir no Prato |
 | :--- | :--- |
 | **Arroz (branco ou outro)** | **2 escumadeiras médias rasas** (ou 2 conchas rasas). |
 | **Feijão (preto, carioca, fradinho, etc.)** | **1 concha cheia** com grãos macios e caldo bem espesso. |
-| **Frango ou Carne Bovina (bife ou filé)** | **1 bife médio do tamanho da palma da mão aberta do Teddy** (~150g pronto). |
+| **Frango ou Carne Bovina (bife ou filé)** | **1 bife médio do tamanho da palma da sua mão aberta** (~140-150g pronto). |
 | **Carne Moída Refogada** | **4 colheres de sopa bem cheias**. |
 | **Banana da Terra** | **1 unidade média inteira** (grelhada com um pingo de manteiga/azeite até dourar, ou cozida). |
-| **Ovos (Café da Manhã)** | **3 ovos inteiros** (mexidos cremosos, cozidos ou omelete). |
+| **Ovos (Café da Manhã)** | **2 a 3 ovos inteiros** (mexidos cremosos, cozidos ou omelete). |
 | **Batatas (inglesa ou doce)** | **2 batatas médias** (em purê, cozidas ou assadas em rodelas). |
 | **Salada Verde & Legumes** | **À vontade** (alface, rúcula, tomate, abobrinha, cenoura) com 1 colher de sobremesa de azeite e limão. |
 
@@ -33,7 +33,7 @@
 ## 3. CARDÁPIO DAS 4 SEMANAS DO MÊS
 
 ### SEMANA 1 — Clássicos da Casa & Energia
-- **Café da Manhã (7h30):** 3 ovos mexidos cremosos + 1 banana da terra grelhada com canela e mel + café preto sem açúcar. *(Teddy toma sua creatina junto desta refeição).*
+- **Café da Manhã (7h30):** 3 ovos mexidos cremosos + 1 banana da terra grelhada com canela e mel + café preto ou chá. *(Creatina tomada junto desta refeição).*
 - **Almoço (12h30):** Peito de frango grelhado marinado no limão e alho + 2 escumadeiras de arroz + 1 concha de feijão preto encorpado + salada de folhas com azeite.
 - **Lanche da Tarde (16h30):** 1 pote de iogurte natural com 3 colheres de aveia, 1 banana fatiada e castanhas.
 - **Jantar (20h30):** Bife de alcatra grelhado macio + 2 escumadeiras de arroz + 1 concha de feijão preto + abobrinha e cenoura salteadas no alho e azeite.

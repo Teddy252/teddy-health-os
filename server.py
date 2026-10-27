@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-TEDDY HEALTH & FITNESS OS — INTEGRATED HTTP & HEALTHKIT SYNC SERVER
+HEALTH & FITNESS OS — INTEGRATED HTTP & HEALTHKIT SYNC SERVER
 Serves dashboard static assets AND provides REST endpoint for Apple Shortcuts & watchOS webhooks.
 """
 
@@ -67,10 +67,10 @@ def update_healthkit_data(payload):
         json.dump(summary_data, f, indent=2, ensure_ascii=False)
 
     msg = f"Passos: {payload.get('steps', '-')} | Cal: {payload.get('active_calories', '-')} kcal | HRV: {payload.get('hrv', '-')} ms"
-    notify_mac("Apple Watch • Sincronizado", f"Dados atualizados no Teddy OS! {msg}")
+    notify_mac("Apple Watch • Sincronizado", f"Dados atualizados com sucesso! {msg}")
     print(f"[{datetime.now().strftime('%H:%M:%S')}] Webhook HealthKit processado com sucesso: {msg}")
 
-class TeddyHealthHandler(SimpleHTTPRequestHandler):
+class AthleteHealthHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=BASE_DIR, **kwargs)
 
@@ -83,7 +83,7 @@ class TeddyHealthHandler(SimpleHTTPRequestHandler):
             self.end_headers()
             resp = {
                 "status": "online",
-                "system": "Teddy Health & Fitness OS",
+                "system": "Health & Fitness Athlete OS",
                 "timestamp": datetime.now().isoformat()
             }
             self.wfile.write(json.dumps(resp).encode("utf-8"))
@@ -138,9 +138,9 @@ class TeddyHealthHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
 def run_server(port=8080):
-    server = ThreadingHTTPServer(("0.0.0.0", port), TeddyHealthHandler)
+    server = ThreadingHTTPServer(("0.0.0.0", port), AthleteHealthHandler)
     print("=" * 60)
-    print(f"TEDDY HEALTH OS — INTEGRATED HTTP & HEALTHKIT SYNC SERVER")
+    print(f"HEALTH & FITNESS ATHLETE OS — HTTP & HEALTHKIT SYNC SERVER")
     print(f"Porta: {port}")
     print(f"Dashboard: http://localhost:{port}/dashboard/index.html")
     print(f"Webhook HealthKit: http://localhost:{port}/api/healthkit-sync (POST)")

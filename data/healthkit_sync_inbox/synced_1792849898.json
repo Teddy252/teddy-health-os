@@ -1,9 +1,9 @@
 {
-  "steps": 18920,
-  "active_calories": 460,
-  "resting_heart_rate": 60,
-  "hrv": 52.0,
+  "steps": 10240,
+  "active_calories": 420,
+  "resting_heart_rate": 62,
+  "hrv": 56.0,
   "sleep_hours": 8.1,
-  "weight": 72.6,
-  "source": "Apple Watch Ultra (Simulated Sync)"
+  "weight": 62.0,
+  "source": "Apple Watch (Sample Sync)"
 }

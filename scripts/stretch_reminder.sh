@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# stretch_reminder.sh — Daemon de Lembretes do Fisioterapeuta (Teddy Health OS)
+# stretch_reminder.sh — Daemon de Lembretes do Fisioterapeuta (Athlete OS)
 # Dispara notificações nativas no macOS com exercícios rotativos de postura, mobilidade e hidratação.
 
 EXERCISES=(
@@ -17,6 +17,6 @@ INDEX=$(( $(date +%-M) % ${#EXERCISES[@]} ))
 MESSAGE="${EXERCISES[$INDEX]}"
 
 # Disparar notificação nativa macOS
-osascript -e "display notification \"$MESSAGE\" with title \"🧘 Fisioterapeuta Teddy OS\" subtitle \"Pausa Ativa Ergonômica (2 Minutos)\" sound name \"Glass\""
+osascript -e "display notification \"$MESSAGE\" with title \"🧘 Fisioterapeuta Athlete OS\" subtitle \"Pausa Ativa Ergonômica (2 Minutos)\" sound name \"Glass\""
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Lembrete disparado: $MESSAGE"

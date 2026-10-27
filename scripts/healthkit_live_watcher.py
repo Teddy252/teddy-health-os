@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-TEDDY HEALTH & FITNESS OS — APPLE HEALTHKIT & APPLE WATCH LIVE WATCHER
+HEALTH & FITNESS OS — APPLE HEALTHKIT & APPLE WATCH LIVE WATCHER
 Syncs real-time metrics (steps, calories, HRV, sleep, workouts) from iCloud Drive or local drop inbox.
 """
 
@@ -16,7 +16,7 @@ DATA_DIR = os.path.join(PROJECT_DIR, "data")
 HEALTH_SUMMARY_PATH = os.path.join(DATA_DIR, "health_summary.json")
 PROFILE_PATH = os.path.join(DATA_DIR, "athlete_profile.json")
 LOCAL_INBOX_DIR = os.path.join(DATA_DIR, "healthkit_sync_inbox")
-ICLOUD_DIR = os.path.expanduser("~/Library/Mobile Documents/com~apple~CloudDocs/Teddy_OS")
+ICLOUD_DIR = os.path.expanduser("~/Library/Mobile Documents/com~apple~CloudDocs/Athlete_OS")
 
 os.makedirs(LOCAL_INBOX_DIR, exist_ok=True)
 
@@ -101,7 +101,7 @@ def process_payload(payload):
 
     msg = f"Passos: {payload.get('steps', 'N/A')} | Ativas: {payload.get('active_calories', 'N/A')} kcal | HRV: {payload.get('hrv', 'N/A')} ms"
     print(f"[{datetime.now().strftime('%H:%M:%S')}] Sincronização concluída com sucesso! {msg}")
-    notify_mac("Teddy Health OS • Sincronizado", f"Dados do Apple Watch atualizados! {msg}")
+    notify_mac("Athlete OS • Sincronizado", f"Dados do Apple Watch atualizados! {msg}")
 
 def check_and_ingest():
     """Checks both local inbox and iCloud folder for sync payload."""
@@ -128,7 +128,7 @@ def check_and_ingest():
 
 def main():
     print("=" * 60)
-    print("TEDDY HEALTH OS — APPLE HEALTHKIT & APPLE WATCH LIVE WATCHER")
+    print("ATHLETE HEALTH OS — APPLE HEALTHKIT & APPLE WATCH LIVE WATCHER")
     print(f"Monitorando pastas de sincronização:")
     print(f"  1. Inbox Local: {LOCAL_INBOX_DIR}")
     print(f"  2. iCloud Drive: {ICLOUD_DIR}")

@@ -1,122 +1,103 @@
-# ⚡ Teddy Health & Fitness OS
+# ⚡ Health & Fitness Athlete OS
 
-> **High-Performance Athletic Operating System**  
-> Custom Sports Science, Golden Era Hypertrophy, Apple Watch / HealthKit Integration, Kitchen & Nutrition Automation, and Clinical Physiotherapy.
+> **Open-Source Athletic, Wellness & Physiotherapy Operating System**  
+> Um sistema completo e personalizável de alta performance que une musculação estruturada, nutrição equilibrada, protocolos clínicos de fisioterapia, ergonomia e sincronização com Apple Watch / Apple Health.
 
 ---
 
 ## 🏛️ Visão Geral
 
-O **Teddy Health & Fitness OS** é uma plataforma médica e esportiva personalizada desenvolvida para alta performance física e cognitiva. Ele une:
-1. **Treinos Olympus (Golden Era Bodybuilding):** Periodização A/B/C com sobrecarga progressiva, cadência controlada, repetições na reserva e biblioteca multimídia de execução 3D.
-2. **Nutrição de Precisão & Guia da Cozinha:** Aporte de 2.680 kcal calibrado para ganho de massa magra sem acúmulo de gordura, triplo anel de macronutrientes, hidratação de 3L/dia e lista de compras mensal de atacado com medidas caseiras para a cozinheira.
-3. **Fisioterapia, Mobilidade & Ergonomia Mac:** 16 protocolos clínicos com sistema de mídia tripla (Render 3D de atleta, vídeo em loop na gaveta deslizante e diagramas vetoriais de ângulos), cronômetro inteligente com troca de lados e triagem rápida de dor.
-4. **Apple Watch HealthKit Hub:** Sincronização em tempo real de passos, calorias ativas, frequência cardíaca em repouso e variabilidade da frequência cardíaca (VFC/HRV), com atalhos no iOS para fechar os anéis automaticamente.
+O **Health & Fitness Athlete OS** é uma plataforma desenvolvida para quem busca consistência física, biomecânica sem lesões e controle diário de bem-estar.
+
+O sistema integra 4 pilares fundamentais:
+1. **Musculação Estruturada (Treinos A, B, C):** Divisões inteligentes com sobrecarga progressiva, cadência controlada, repetições na reserva e uma biblioteca completa de execuções com vídeos e renders 3D.
+2. **Nutrição & Guia da Cozinha:** Metas diárias de calorias e macronutrientes, acompanhamento de hidratação copo a copo, matriz de refeições para as 4 semanas do mês e lista de compras com medidas caseiras práticas (sem necessidade de balança).
+3. **Fisioterapia, Mobilidade & Ergonomia:** 16 protocolos clínicos organizados por categoria (Pré-treino, Pós-treino, Anti-Desk Work e Blindagem Articular), triagem interativa de sintomas com alívio imediato e cronômetro multifásico com áudio para troca de lados.
+4. **Hub Apple Watch & Apple Health:** Acompanhamento de passos diários, calorias ativas, frequência cardíaca em repouso e variabilidade da FC (HRV), com suporte a atalhos do iOS para registrar treinos e fechar os anéis automaticamente.
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## ⚙️ Como Personalizar para Você (Plug & Play)
 
-```
-┌─────────────────────────┐         ┌─────────────────────────┐
-│       Apple Watch       │         │      Mac Workstation    │
-│  Passos • FC • VFC •    │         │  Ergonomia • Pausas     │
-│  Calorias • Sono        │         │  stretch_reminder.sh    │
-└────────────┬────────────┘         └────────────┬────────────┘
-             │                                   │
-             ▼                                   ▼
-┌─────────────────────────┐         ┌─────────────────────────┐
-│     App Atalhos (iOS)   │         │    Teddy Health Server  │
-│  Automação pós-treino / │ ──────> │    Python 3 HTTP +      │
-│  POST /api/healthkit    │         │    HealthKit Webhook    │
-└─────────────────────────┘         └────────────┬────────────┘
-                                                 │
-                                                 ▼
-                                    ┌─────────────────────────┐
-                                    │     Live Dashboard      │
-                                    │  HTML5 + CSS Moderno +  │
-                                    │  SVG Vector Charts      │
-                                    └─────────────────────────┘
-```
+O projeto é **100% orientado a dados desacoplados (JSON)**. Para personalizar todo o sistema com os seus próprios dados, você só precisa alterar os arquivos dentro da pasta `data/`:
+
+1. **Seu Perfil e Metas (`data/athlete_profile.json`):**
+   - Altere seu `name`, `age`, `height_cm`, `current_weight_kg` e `target_weight_kg`.
+   - Configure suas metas de calorias, proteínas, carboidratos, gorduras e água diária.
+   - O cabeçalho do painel e os indicadores se atualizam automaticamente!
+
+2. **Seus Treinos (`data/workouts.json`):**
+   - Personalize a divisão dos treinos (Treino A, B, C ou crie novas divisões).
+   - Ajuste exercícios, séries, repetições e intervalos de descanso.
+
+3. **Seu Cardápio (`data/meal_plan.json`):**
+   - Defina as refeições que você mais gosta para cada semana do mês.
+   - Configure a lista de compras do supermercado e da feira.
 
 ---
 
 ## 🚀 Como Executar
 
-### 1. Execução Local Completa (com Webhook Apple Watch)
-```bash
-# Clone ou acesse o diretório do projeto
-cd Internos_Teddy/Teddy_Health_OS
+### 1. Execução Estática Rápida (Zero Configuração)
+Você não precisa compilar nada nem instalar dependências pesadas:
+- Basta abrir o arquivo `dashboard/index.html` (ou o `index.html` da raiz) diretamente em qualquer navegador (Chrome, Safari, Edge, Firefox).
 
-# Inicie o servidor integrado
+### 2. Execução com Servidor Local & Webhook Apple Health
+Para aproveitar as notificações sonoras e o endpoint para sincronização com o iPhone:
+```bash
+# Inicie o servidor Python nativo
 python3 server.py
 ```
-Acesse no navegador:
-* **Dashboard do Atleta:** [http://localhost:8080](http://localhost:8080)
-* **Status da API:** [http://localhost:8080/api/status](http://localhost:8080/api/status)
+Acesse no seu navegador:
+- **Painel:** [http://localhost:8080](http://localhost:8080)
+- **Status da API:** [http://localhost:8080/api/status](http://localhost:8080/api/status)
 
-### 2. Execução Estática (GitHub Pages / Standalone)
-O frontend foi desenvolvido com tecnologia web moderna nativa (zero dependências pesadas de build). Você pode abrir diretamente o arquivo `dashboard/index.html` em qualquer navegador ou hospedar gratuitamente no **GitHub Pages**.
-
----
-
-## 📱 Integração Apple Watch & HealthKit
-
-Para enviar métricas automaticamente do iPhone/Watch para o painel:
-1. Abra o app **Atalhos** no iPhone.
-2. Crie uma nova automação pessoal disparada ao **"Terminar um Treino"** ou às **"22:00"**.
-3. Adicione a ação **"Obter Conteúdo de URL"**:
-   - **URL:** `http://<SEU_IP_LOCAL>:8080/api/healthkit-sync`
-   - **Método:** `POST`
-   - **Cabeçalho:** `Content-Type: application/json`
-   - **Corpo da Requisição (JSON):**
-     ```json
-     {
-       "steps": 14200,
-       "active_calories": 480,
-       "resting_heart_rate": 58,
-       "hrv": 54,
-       "sleep_hours": 7.8,
-       "source": "Apple Watch Ultra"
-     }
-     ```
-4. Ao receber a requisição, o servidor emite uma notificação nativa com som no macOS e atualiza o dashboard instantaneamente.
+### 3. Deploy Gratuito no GitHub Pages
+Para acessar o painel de qualquer lugar (no celular, tablet ou computador):
+1. No seu repositório no GitHub, vá em **Settings** ➔ **Pages**.
+2. Em **Branch**, selecione `main` e a pasta `/ (root)`.
+3. Clique em **Save**.
+4. Em instantes, o seu dashboard estará online e acessível publicamente!
 
 ---
 
-## 📁 Estrutura do Repositório
+## 📱 Sincronização com Apple Watch & Atalhos do iPhone
+
+O sistema inclui guias detalhados para conectar o seu relógio:
+- **Envio Automático de Métricas:** Crie uma automação no app **Atalhos (Shortcuts)** do iOS para enviar passos, calorias e FC ao término de treinos ou às 22h via webhook POST ou arquivo no iCloud.
+- **Fechamento de Anéis:** O botão no dashboard dispara a URL scheme nativa `shortcuts://` para registrar o treino finalizado diretamente no Apple Fitness.
+- Consulte o passo a passo completo no arquivo [`docs/guia_integracao_apple_health.md`](docs/guia_integracao_apple_health.md).
+
+---
+
+## 📁 Estrutura do Projeto
 
 ```
-Teddy_Health_OS/
-├── dashboard/                     # Interface do Dashboard
-│   ├── index.html                 # Página principal esportiva
+├── dashboard/                     # Interface Web Completa
+│   ├── index.html                 # Hub central esportivo
 │   ├── css/style.css              # Design system dark atlético
 │   ├── js/app.js                  # Engine reativa (Timer, Anéis, Mídia)
-│   ├── assets/                    # Assets gráficos e de mídia
-│   │   ├── exercises/             # 25+ vídeos MP4 e renders WebP de musculação
-│   │   ├── physio/                # 48 arquivos: WebP 3D, vídeos MP4 e diagramas SVG
-│   │   └── *.svg                  # Mapas anatômicos musculares
-│   └── guia_cozinha_print.html    # Layout A4 pronto para impressão
-├── data/                          # Base de dados JSON desacoplada
-│   ├── athlete_profile.json       # Perfil biométrico e metas
-│   ├── workouts.json              # Periodização dos Treinos A, B e C
-│   ├── meal_plan.json             # Cardápios das 4 semanas e lista de compras
-│   ├── health_summary.json        # Métricas sincronizadas do Apple Watch
-│   └── physio_protocols.json      # 16 protocolos clínicos de reabilitação
+│   ├── assets/                    # Vídeos MP4, WebP 3D e SVGs anatômicos
+│   │   ├── exercises/             # Execuções de musculação
+│   │   └── physio/                # Protocolos clínicos de fisioterapia
+│   └── guia_cozinha_print.html    # Layout A4 para impressão/geladeira
+├── data/                          # Dados em JSON puro (fácil personalização)
+│   ├── athlete_profile.json       # Perfil do atleta e metas
+│   ├── workouts.json              # Periodização dos treinos
+│   ├── meal_plan.json             # Cardápios semanais e listas de compras
+│   ├── health_summary.json        # Métricas agregadas de saúde
+│   └── physio_protocols.json      # Protocolos clínicos de fisioterapia
 ├── docs/                          # Manuais e documentações
-│   ├── manual_do_atleta.md        # Manual de treino, sobrecarga e suplementação
-│   ├── guia_da_cozinha_mensal.md  # Manual da cozinheira e medidas caseiras
-│   ├── guia_da_cozinha_mensal.pdf # PDF vetorial pronto para geladeira
-│   └── guia_integracao_apple.md   # Passo a passo de configuração do iOS
-├── scripts/                       # Utilitários e automações
-│   ├── stretch_reminder.sh        # Daemon de pausas de 90 min no Mac
-│   └── generate_kitchen_pdf.py    # Gerador de PDF em alta resolução (PyMuPDF)
-├── server.py                      # Servidor HTTP + Webhook HealthKit
-└── index.html                     # Redirecionamento raiz
+│   ├── manual_do_atleta.md        # Princípios de treino e recuperação
+│   ├── guia_da_cozinha_mensal.md  # Guia operacional de refeições
+│   └── guia_integracao_apple.md   # Passo a passo de atalhos no iOS
+├── scripts/                       # Scripts auxiliares e automações
+│   ├── server.py                  # Servidor HTTP + Webhook HealthKit
+│   └── stretch_reminder.sh        # Lembrete de pausas ergonômicas
+└── index.html                     # Redirecionador automático
 ```
 
 ---
 
-## 📄 Licença & Autoria
-Desenvolvido sob medida por **Antigravity AI** para **Teddy Tchogninou**.  
-Projeto de uso pessoal e alta performance.
+## 📄 Licença
+Distribuído sob a licença MIT. Sinta-se livre para clonar, adaptar, compartilhar com amigos e utilizar em sua própria rotina de bem-estar.
